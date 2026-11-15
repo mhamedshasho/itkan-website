@@ -785,6 +785,14 @@
       border-color: var(--accent);
     }
 
+    .business-card-showcase { padding:18px; }
+    .business-card-image-wrap { position:relative;width:100%;overflow:hidden;border-radius:16px;background:#170d16;border:1px solid rgba(214,181,111,.55);cursor:zoom-in;box-shadow:0 14px 36px rgba(40,10,32,.18); }
+    .business-card-image { display:block;width:100%;height:auto;max-height:none;object-fit:contain; }
+    .business-card-zoom { position:absolute;left:12px;bottom:12px;padding:8px 12px;border-radius:999px;background:rgba(25,10,23,.78);color:#fff;font-size:.82rem;font-weight:700;opacity:0;transform:translateY(5px);transition:opacity .2s ease,transform .2s ease; }
+    .business-card-image-wrap:hover .business-card-zoom,.business-card-image-wrap:focus-visible .business-card-zoom { opacity:1;transform:translateY(0); }
+    .business-card-showcase .bcard-actions { margin-top:18px; }
+    .sr-only { position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important; }
+
     .bcard-top {
       display: flex;
       align-items: center;
@@ -1505,42 +1513,19 @@
 
       <div class="contact-layout">
         <!-- كرت التواصل -->
-        <div class="business-card reveal">
-          <div class="bcard-top">
-            <div class="bcard-identity">
-              <div class="bcard-logo-slot">
-                <img src="LOGO.jpg" alt="شعار الإتقان للدعاية والإعلان" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
-                <span class="brand-fallback" style="display:none;">إ</span>
-              </div>
-              <div>
-                <h3 style="font-size: 1.12rem; line-height: 1.3;">الإتقان للدعاية والإعلان</h3>
-                <p style="font-size: 0.82rem; color: var(--muted);">إسماعيل حريري • Ismail Hariri</p>
-              </div>
-            </div>
-            <span class="bcard-badge">كرت تواصل</span>
+        <div class="business-card reveal business-card-showcase">
+          <div class="business-card-image-wrap" role="button" tabindex="0" aria-label="تكبير بطاقة الإتقان" onclick="openBusinessCard()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBusinessCard();}">
+            <img class="business-card-image" src="card.jpg" alt="بطاقة الإتقان للدعاية والإعلان - إسماعيل حريري" loading="eager" decoding="async" />
+            <span class="business-card-zoom">اضغط لمشاهدة البطاقة بالحجم الكامل <span aria-hidden="true">⤢</span></span>
           </div>
-
-          <div class="bcard-details">
-            <div class="bcard-row">
-              <span>الاسم</span>
-              <span id="cardOwner">إسماعيل حريري (Ismail Hariri)</span>
-            </div>
-            <div class="bcard-row">
-              <span>الهاتف / واتساب</span>
-              <a href="https://wa.me/963951437410" target="_blank" rel="noopener" dir="ltr" id="cardPhone">+963 951 437 410</a>
-            </div>
-            <div class="bcard-row">
-              <span>البريد الإلكتروني</span>
-              <a href="mailto:itkanmedia@gmail.com" dir="ltr" id="cardEmail">itkanmedia@gmail.com</a>
-            </div>
-            <div class="bcard-row">
-              <span>العنوان</span>
-              <span id="cardAddress">حلب - الجميلية - شارع إسكندرون - عبارة عالم الأحبار</span>
-            </div>
+          <div class="sr-only" aria-hidden="true">
+            <span id="cardOwner">إسماعيل حريري (Ismail Hariri)</span>
+            <span id="cardPhone">+963 951 437 410</span>
+            <span id="cardEmail">itkanmedia@gmail.com</span>
+            <span id="cardAddress">حلب - الجميلية - شارع إسكندرون - عبارة عالم الأحبار</span>
           </div>
-
           <div class="bcard-actions">
-            <button type="button" class="btn btn-primary" id="saveVCardBtn">حفظ الكرت في الهاتف</button>
+            <button type="button" class="btn btn-primary" id="saveVCardBtn">حفظ بيانات التواصل في الهاتف</button>
             <a href="https://wa.me/963951437410" target="_blank" rel="noopener" class="btn btn-outline">واتساب</a>
             <button type="button" class="btn btn-outline" id="copyContactBtn">نسخ البيانات</button>
           </div>
@@ -1648,6 +1633,11 @@
       });
     });
     function closeProjectLightbox() { projectLightbox.classList.remove('open'); projectLightboxImage.src = ''; }
+    function openBusinessCard() {
+      projectLightboxImage.src = 'card.jpg';
+      projectLightboxImage.alt = 'بطاقة الإتقان للدعاية والإعلان';
+      projectLightbox.classList.add('open');
+    }
 
     // أكواد QR
     function handleQrError(img, label, path) {
