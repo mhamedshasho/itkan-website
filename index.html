@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
   <title>الإتقان للدعاية والإعلان | طباعة • هوية بصرية • لوحات وتغليف</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -22,15 +19,17 @@
       --accent: #7c3aed;
       --accent-hover: #6d28d9;
       --accent-soft: rgba(124, 58, 237, 0.1);
-      --accent-glow: rgba(124, 58, 237, 0.22);
+      --accent-glow: rgba(124, 58, 237, 0.24);
       --header-bg: rgba(255, 255, 255, 0.9);
-      --hero-bg: radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.12), transparent 45%),
+      --hero-bg: radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.14), transparent 46%),
+                 radial-gradient(circle at 88% 25%, rgba(168, 85, 247, 0.09), transparent 42%),
                  linear-gradient(180deg, #faf8ff 0%, #ffffff 100%);
       --card-gradient: linear-gradient(135deg, #f5f3ff 0%, #ffffff 58%, #ede9fe 140%);
       --shadow-sm: 0 4px 16px rgba(24, 16, 40, 0.05);
-      --shadow-md: 0 16px 36px rgba(24, 16, 40, 0.08);
+      --shadow-md: 0 18px 40px rgba(24, 16, 40, 0.09);
       --radius: 16px;
-      --transition: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      --font-main: 'Segoe UI', Tahoma, 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -46,17 +45,18 @@
         --accent: #a855f7;
         --accent-hover: #c084fc;
         --accent-soft: rgba(168, 85, 247, 0.15);
-        --accent-glow: rgba(168, 85, 247, 0.25);
+        --accent-glow: rgba(168, 85, 247, 0.28);
         --header-bg: rgba(7, 7, 9, 0.9);
-        --hero-bg: radial-gradient(circle at 15% 10%, rgba(168, 85, 247, 0.16), transparent 44%),
+        --hero-bg: radial-gradient(circle at 15% 10%, rgba(168, 85, 247, 0.18), transparent 45%),
+                   radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.12), transparent 42%),
                    linear-gradient(180deg, #0c0914 0%, #070709 100%);
-        --card-gradient: linear-gradient(145deg, #1a1429 0%, #110e1a 55%, rgba(168, 85, 247, 0.16) 140%);
-        --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.38);
-        --shadow-md: 0 20px 44px rgba(0, 0, 0, 0.55);
+        --card-gradient: linear-gradient(145deg, #1a1429 0%, #110e1a 55%, rgba(168, 85, 247, 0.18) 140%);
+        --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 22px 48px rgba(0, 0, 0, 0.6);
       }
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -69,11 +69,12 @@
     }
 
     body {
-      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      font-family: var(--font-main);
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.72;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
       transition: background-color var(--transition), color var(--transition);
     }
 
@@ -92,11 +93,26 @@
       margin: 0 auto;
     }
 
-    /* حركات ظهور خفيفة ومرتبة */
+    /* حركات وأنيميشنز */
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.06); }
+    }
+
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.92) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal.visible {
@@ -106,6 +122,7 @@
 
     .delay-1 { transition-delay: 0.07s; }
     .delay-2 { transition-delay: 0.14s; }
+    .delay-3 { transition-delay: 0.21s; }
 
     /* الهيدر */
     header {
@@ -144,6 +161,12 @@
       place-items: center;
       overflow: hidden;
       flex-shrink: 0;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .brand:hover .brand-logo-slot {
+      transform: rotate(-3deg) scale(1.04);
+      border-color: var(--accent);
     }
 
     .brand-logo-slot img {
@@ -207,6 +230,7 @@
       bottom: 0;
       width: 0;
       height: 2px;
+      border-radius: 99px;
       background: var(--accent);
       transition: width 0.25s ease;
     }
@@ -271,17 +295,17 @@
       font-size: 0.92rem;
       cursor: pointer;
       border: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
     }
 
     .btn:active {
-      transform: scale(0.98);
+      transform: scale(0.97);
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 10px 22px var(--accent-glow);
+      box-shadow: 0 10px 24px var(--accent-glow);
     }
 
     .btn-primary:hover {
@@ -303,6 +327,7 @@
 
     /* Hero */
     .hero {
+      position: relative;
       background: var(--hero-bg);
       padding: 64px 0 72px;
       border-bottom: 1px solid var(--border);
@@ -327,6 +352,14 @@
       font-size: 0.82rem;
       font-weight: 700;
       margin-bottom: 14px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulseGlow 2.4s ease-in-out infinite;
     }
 
     .hero h1 {
@@ -366,6 +399,12 @@
       border-radius: 12px;
       padding: 12px;
       box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .fact:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
     }
 
     .fact strong {
@@ -386,6 +425,7 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow-md);
+      animation: floatSoft 6s ease-in-out infinite;
     }
 
     .hero-panel h3 {
@@ -409,6 +449,12 @@
       border: 1px solid var(--border);
       font-size: 0.89rem;
       color: var(--text-secondary);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .key-points li:hover {
+      transform: translateX(-4px);
+      border-color: var(--accent);
     }
 
     .badge-num {
@@ -451,7 +497,7 @@
       font-size: 0.92rem;
     }
 
-    /* ملخص سريع ومن نحن */
+    /* نظرة سريعة */
     .overview-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -464,12 +510,13 @@
       border-radius: var(--radius);
       padding: 20px;
       box-shadow: var(--shadow-sm);
-      transition: transform var(--transition), border-color var(--transition);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
     }
 
     .overview-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
 
     .overview-card span {
@@ -513,7 +560,7 @@
     }
 
     .service-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
@@ -569,7 +616,7 @@
       font-weight: 700;
       font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.22s ease;
     }
 
     .filter-btn.active,
@@ -577,6 +624,7 @@
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .project-card {
@@ -591,7 +639,7 @@
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
@@ -607,11 +655,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.45s ease;
+      transition: transform 0.5s ease;
     }
 
     .project-card:hover .project-media img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .project-fallback {
@@ -677,12 +725,12 @@
       display: none !important;
     }
 
-    /* كرت التواصل */
-    .contact-card-wrapper {
+    /* كرت التواصل + مكان كودي QR */
+    .contact-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 24px;
-      align-items: center;
+      align-items: start;
     }
 
     .business-card {
@@ -763,6 +811,11 @@
       background: var(--surface);
       border: 1px solid var(--border);
       font-size: 0.88rem;
+      transition: border-color var(--transition);
+    }
+
+    .bcard-row:hover {
+      border-color: var(--accent);
     }
 
     .bcard-row span:first-child {
@@ -771,15 +824,15 @@
       flex-shrink: 0;
     }
 
-    .bcard-row span:last-child {
+    .bcard-row span:last-child,
+    .bcard-row a {
       color: var(--text);
       font-weight: 700;
       text-align: left;
     }
 
-    .editable-hint {
-      color: var(--accent) !important;
-      font-weight: 700;
+    .bcard-row a:hover {
+      color: var(--accent);
     }
 
     .bcard-actions {
@@ -796,23 +849,198 @@
       min-height: 20px;
     }
 
-    .info-box {
+    /* شبكة كودي QR (واتساب + إنستغرام) */
+    .qr-panel {
       background: var(--surface);
-      padding: 26px;
-      border-radius: var(--radius);
       border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      gap: 16px;
+    }
+
+    .qr-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .qr-panel-header h3 {
+      font-size: 1.08rem;
+    }
+
+    .qr-panel-header span {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .qr-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .qr-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
       box-shadow: var(--shadow-sm);
     }
 
-    .info-box h3 {
-      font-size: 1.15rem;
-      margin-bottom: 12px;
+    .qr-card-title {
+      font-weight: 800;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .info-box p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      margin-bottom: 12px;
+    .qr-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .qr-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 168px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 8px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .qr-box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 24px var(--accent-glow);
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px;
+      background: var(--card-gradient);
+      color: var(--muted);
+      font-size: 0.74rem;
+      border-radius: 8px;
+    }
+
+    .qr-fallback strong {
+      color: var(--text);
+      font-size: 0.84rem;
+    }
+
+    .qr-fallback code {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      direction: ltr;
+    }
+
+    .qr-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      width: 100%;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .qr-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* نافذة تكبير كود QR */
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      background: rgba(7, 7, 9, 0.78);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .qr-modal.open {
+      display: flex;
+    }
+
+    .qr-modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      width: min(360px, 94vw);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      animation: modalPop 0.25s ease;
+    }
+
+    .qr-modal-box h4 {
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+    }
+
+    .qr-modal-preview {
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 16px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+    }
+
+    .qr-modal-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     footer {
@@ -827,7 +1055,7 @@
     /* استجابة الشاشات المتوسطة */
     @media (max-width: 960px) {
       .hero-grid,
-      .contact-card-wrapper,
+      .contact-layout,
       .grid-3 {
         grid-template-columns: 1fr;
       }
@@ -843,6 +1071,10 @@
       .menu-btn {
         display: grid;
         place-items: center;
+      }
+
+      .hero-panel {
+        animation: none;
       }
     }
 
@@ -892,7 +1124,8 @@
       }
 
       .quick-facts,
-      .overview-grid {
+      .overview-grid,
+      .qr-grid {
         grid-template-columns: 1fr;
       }
 
@@ -903,7 +1136,7 @@
 
       .hero-panel,
       .business-card,
-      .info-box,
+      .qr-panel,
       .service-card {
         padding: 16px;
         border-radius: 14px;
@@ -929,8 +1162,13 @@
         font-size: 0.84rem;
       }
 
-      .bcard-row span:last-child {
+      .bcard-row span:last-child,
+      .bcard-row a {
         text-align: right;
+      }
+
+      .qr-box {
+        max-width: 190px;
       }
     }
 
@@ -950,9 +1188,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation: none !important;
         transition: none !important;
       }
@@ -965,7 +1201,7 @@
     <div class="container nav">
       <a href="#" class="brand">
         <div class="brand-logo-slot">
-          <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+          <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
           <span class="brand-fallback" style="display:none;">إ</span>
         </div>
         <div class="brand-text">
@@ -978,7 +1214,7 @@
         <a href="#summary">نظرة سريعة</a>
         <a href="#services">الخدمات</a>
         <a href="#featured-projects">أبرز مشاريعنا</a>
-        <a href="#contact-card">كرت التواصل</a>
+        <a href="#contact-card">كرت التواصل و QR</a>
       </nav>
 
       <button type="button" class="menu-btn" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
@@ -988,20 +1224,20 @@
       <a href="#summary">نظرة سريعة</a>
       <a href="#services">الخدمات</a>
       <a href="#featured-projects">أبرز مشاريعنا</a>
-      <a href="#contact-card">كرت التواصل</a>
+      <a href="#contact-card">كرت التواصل و QR</a>
     </div>
   </header>
 
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal">
-        <span class="pill">الإتقان للدعاية والإعلان</span>
+        <span class="pill"><span class="pill-dot"></span>الإتقان للدعاية والإعلان</span>
         <h1>حلول طباعية وهوية بصرية <span>واضحة وعملية</span></h1>
         <p>
           نركّز على ما يهمك فعلاً: ملفات جاهزة للطباعة دون أخطاء، خامات مناسبة للاستخدام، وتسليم ملتزم بالمواعيد.
         </p>
         <div class="hero-actions">
-          <a href="#contact-card" class="btn btn-primary">كرت التواصل</a>
+          <a href="#contact-card" class="btn btn-primary">كرت التواصل وأكواد QR</a>
           <a href="#featured-projects" class="btn btn-outline">أبرز مشاريعنا</a>
         </div>
         <div class="quick-facts">
@@ -1054,7 +1290,7 @@
           <h3>كميات صغيرة وكبيرة</h3>
           <p>تجهيز عينات تجريبية أو تشغيل تجاري واسع بنفس مستوى المتابعة.</p>
         </div>
-        <div class="overview-card reveal delay-2">
+        <div class="overview-card reveal delay-3">
           <span>04 • الالتزام</span>
           <h3>وضوح في المواعيد</h3>
           <p>جدول زمني محدد من اعتماد التصميم وحتى التسليم النهائي.</p>
@@ -1146,7 +1382,7 @@
         <article class="project-card reveal" data-category="identity">
           <div class="project-media">
             <span class="tag">هوية بصرية</span>
-            <img src="images/project-1.jpg" alt="دليل هوية وقرطاسية شركة" onerror="handleImgError(this, 'مشروع 1 — هوية وقرطاسية', 'images/project-1.jpg')" />
+            <img src="images/project-1.jpg" alt="دليل هوية وقرطاسية شركة" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 1 — هوية وقرطاسية', 'images/project-1.jpg')" />
           </div>
           <div class="project-body">
             <h3>هوية متكاملة لشركة خدمات استشارية</h3>
@@ -1157,7 +1393,7 @@
         <article class="project-card reveal delay-1" data-category="print">
           <div class="project-media">
             <span class="tag">مطبوعات</span>
-            <img src="images/project-2.jpg" alt="كتالوج تعريفي" onerror="handleImgError(this, 'مشروع 2 — كتالوج تعريفي', 'images/project-2.jpg')" />
+            <img src="images/project-2.jpg" alt="كتالوج تعريفي" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 2 — كتالوج تعريفي', 'images/project-2.jpg')" />
           </div>
           <div class="project-body">
             <h3>كتالوج منتجات صناعية</h3>
@@ -1168,7 +1404,7 @@
         <article class="project-card reveal delay-2" data-category="signage">
           <div class="project-media">
             <span class="tag">لوحات وتغليف</span>
-            <img src="images/project-3.jpg" alt="واجهة كلادينج وحروف بارزة" onerror="handleImgError(this, 'مشروع 3 — واجهة كلادينج', 'images/project-3.jpg')" />
+            <img src="images/project-3.jpg" alt="واجهة كلادينج وحروف بارزة" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 3 — واجهة كلادينج', 'images/project-3.jpg')" />
           </div>
           <div class="project-body">
             <h3>واجهة محل تجاري ولوحة إرشادية</h3>
@@ -1179,7 +1415,7 @@
         <article class="project-card reveal" data-category="signage">
           <div class="project-media">
             <span class="tag">لوحات وتغليف</span>
-            <img src="images/project-4.jpg" alt="صناديق وملصقات منتجات" onerror="handleImgError(this, 'مشروع 4 — علب وملصقات', 'images/project-4.jpg')" />
+            <img src="images/project-4.jpg" alt="صناديق وملصقات منتجات" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 4 — علب وملصقات', 'images/project-4.jpg')" />
           </div>
           <div class="project-body">
             <h3>تغليف منتجات استهلاكية</h3>
@@ -1190,7 +1426,7 @@
         <article class="project-card reveal delay-1" data-category="print">
           <div class="project-media">
             <span class="tag">مطبوعات</span>
-            <img src="images/project-5.jpg" alt="منيوهات وبروشورات" onerror="handleImgError(this, 'مشروع 5 — منيوهات وبروشورات', 'images/project-5.jpg')" />
+            <img src="images/project-5.jpg" alt="منيوهات وبروشورات" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 5 — منيوهات وبروشورات', 'images/project-5.jpg')" />
           </div>
           <div class="project-body">
             <h3>منيوهات وبروشورات ترويجية</h3>
@@ -1201,7 +1437,7 @@
         <article class="project-card reveal delay-2" data-category="identity">
           <div class="project-media">
             <span class="tag">هوية بصرية</span>
-            <img src="images/project-6.jpg" alt="ستاندات عرض ومواد فعاليات" onerror="handleImgError(this, 'مشروع 6 — ستاندات ومعارض', 'images/project-6.jpg')" />
+            <img src="images/project-6.jpg" alt="ستاندات عرض ومواد فعاليات" loading="lazy" decoding="async" onerror="handleImgError(this, 'مشروع 6 — ستاندات ومعارض', 'images/project-6.jpg')" />
           </div>
           <div class="project-body">
             <h3>تجهيز جناح معرض ومؤتمر</h3>
@@ -1215,21 +1451,22 @@
   <section id="contact-card" class="section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <h2>كرت التواصل</h2>
-        <p>احفظ بيانات المطبعة في هاتفك أو انسخها بنقرة واحدة</p>
+        <h2>كرت التواصل وأكواد QR</h2>
+        <p>احفظ البيانات، أو امسح كود QR لواتساب وإنستغرام مباشرة</p>
       </div>
 
-      <div class="contact-card-wrapper">
+      <div class="contact-layout">
+        <!-- كرت التواصل -->
         <div class="business-card reveal">
           <div class="bcard-top">
             <div class="bcard-identity">
               <div class="bcard-logo-slot">
-                <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
                 <span class="brand-fallback" style="display:none;">إ</span>
               </div>
               <div>
                 <h3 style="font-size: 1.12rem; line-height: 1.3;">الإتقان للدعاية والإعلان</h3>
-                <p style="font-size: 0.82rem; color: var(--muted);">طباعة • هوية بصرية • لوحات وتغليف</p>
+                <p style="font-size: 0.82rem; color: var(--muted);">إسماعيل حريري • Ismail Hariri</p>
               </div>
             </div>
             <span class="bcard-badge">كرت تواصل</span>
@@ -1237,16 +1474,20 @@
 
           <div class="bcard-details">
             <div class="bcard-row">
+              <span>الاسم</span>
+              <span id="cardOwner">إسماعيل حريري (Ismail Hariri)</span>
+            </div>
+            <div class="bcard-row">
               <span>الهاتف / واتساب</span>
-              <span dir="ltr" id="cardPhone">+963 000 000 000</span>
+              <a href="https://wa.me/963951437410" target="_blank" rel="noopener" dir="ltr" id="cardPhone">+963 951 437 410</a>
             </div>
             <div class="bcard-row">
               <span>البريد الإلكتروني</span>
-              <span dir="ltr" id="cardEmail">info@alitqan-print.com</span>
+              <a href="mailto:itkanmedia@gmail.com" dir="ltr" id="cardEmail">itkanmedia@gmail.com</a>
             </div>
             <div class="bcard-row">
               <span>العنوان</span>
-              <span id="cardAddress" class="editable-hint">اكتب عنوان المطبعة هنا</span>
+              <span id="cardAddress">حلب - الجميلية - شارع إسكندرون - عبارة عالم الأحبار</span>
             </div>
             <div class="bcard-row">
               <span>ساعات العمل</span>
@@ -1256,30 +1497,65 @@
 
           <div class="bcard-actions">
             <button type="button" class="btn btn-primary" id="saveVCardBtn">حفظ الكرت في الهاتف</button>
+            <a href="https://wa.me/963951437410" target="_blank" rel="noopener" class="btn btn-outline">واتساب</a>
             <button type="button" class="btn btn-outline" id="copyContactBtn">نسخ البيانات</button>
           </div>
           <div class="card-copy-feedback" id="copyFeedback"></div>
         </div>
 
-        <div class="info-box reveal delay-1">
-          <h3>تجهيز الملفات والصور</h3>
-          <p>
-            ضع شعار المطبعة داخل مجلد <code>images/</code> باسم <code>logo.png</code> ليظهر تلقائياً في الشريط العلوي وفي كرت التواصل.
-          </p>
-          <p>
-            ضع صور المشاريع داخل مجلد <code>images/</code> بالأسماء <code>project-1.jpg</code> حتى <code>project-6.jpg</code>.
-          </p>
-          <p style="margin-bottom: 0;">
-            لتعديل العنوان، غيّر النص الموجود في خانة العنوان داخل كرت التواصل (<code>id="cardAddress"</code>).
+        <!-- مكان كودي QR (WhatsApp + Instagram) -->
+        <div class="qr-panel reveal delay-1">
+          <div class="qr-panel-header">
+            <h3>أكواد QR السريعة</h3>
+            <span>WhatsApp & Instagram</span>
+          </div>
+
+          <div class="qr-grid">
+            <!-- QR 1: WhatsApp -->
+            <div class="qr-card">
+              <div class="qr-card-title">
+                <span class="qr-dot"></span>
+                <span>WhatsApp</span>
+              </div>
+              <div class="qr-box" onclick="openQrModal('QR واتساب — الإتقان للدعاية والإعلان', 'images/qr-whatsapp.png', 'https://wa.me/963951437410')" title="انقر لتكبير كود QR">
+                <img src="images/qr-whatsapp.png" alt="QR Code WhatsApp" loading="lazy" decoding="async" onerror="handleQrError(this, 'QR WhatsApp', 'images/qr-whatsapp.png')" />
+              </div>
+              <a href="https://wa.me/963951437410" target="_blank" rel="noopener" class="qr-link">فتح واتساب</a>
+            </div>
+
+            <!-- QR 2: Instagram -->
+            <div class="qr-card">
+              <div class="qr-card-title">
+                <span class="qr-dot"></span>
+                <span>Instagram</span>
+              </div>
+              <div class="qr-box" onclick="openQrModal('QR إنستغرام — الإتقان للدعاية والإعلان', 'images/qr-instagram.png', 'https://instagram.com/itkanmedia')" title="انقر لتكبير كود QR">
+                <img src="images/qr-instagram.png" alt="QR Code Instagram" loading="lazy" decoding="async" onerror="handleQrError(this, 'QR Instagram', 'images/qr-instagram.png')" />
+              </div>
+              <a href="https://instagram.com/itkanmedia" target="_blank" rel="noopener" class="qr-link" id="instaLink">فتح إنستغرام</a>
+            </div>
+          </div>
+
+          <p style="font-size: 0.82rem; color: var(--muted);">
+            ضع صوري كود QR داخل مجلد <code>images/</code> بالأسماء <code>qr-whatsapp.png</code> و <code>qr-instagram.png</code>، وعدّل رابط إنستغرام <code>id="instaLink"</code> بحسابك.
           </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- نافذة تكبير كود QR -->
+  <div class="qr-modal" id="qrModal" onclick="closeQrModal(event)">
+    <div class="qr-modal-box" onclick="event.stopPropagation()">
+      <h4 id="qrModalTitle">كود QR</h4>
+      <div class="qr-modal-preview" id="qrModalPreview"></div>
+      <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeQrModal()">إغلاق</button>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
-      <p>جميع الحقوق محفوظة © <span id="year"></span> — <strong>الإتقان للدعاية والإعلان</strong></p>
+      <p>جميع الحقوق محفوظة © <span id="year"></span> — <strong>الإتقان للدعاية والإعلان</strong> • حلب</p>
     </div>
   </footer>
 
@@ -1312,6 +1588,34 @@
       parent.appendChild(box);
     }
 
+    // أكواد QR
+    function handleQrError(img, label, path) {
+      const parent = img.parentElement;
+      img.remove();
+      const box = document.createElement('div');
+      box.className = 'qr-fallback';
+      box.innerHTML = `<strong>${label}</strong><span>ضع صورة QR في:</span><code>${path}</code>`;
+      parent.appendChild(box);
+    }
+
+    const qrModal = document.getElementById('qrModal');
+    const qrModalTitle = document.getElementById('qrModalTitle');
+    const qrModalPreview = document.getElementById('qrModalPreview');
+
+    function openQrModal(title, imgSrc, fallbackUrl) {
+      qrModalTitle.textContent = title;
+      qrModalPreview.innerHTML = `<img src="${imgSrc}" alt="${title}" onerror="this.parentElement.innerHTML='<a href=\\'${fallbackUrl}\\' target=\\'_blank\\' rel=\\'noopener\\' style=\\'color:#7c3aed;font-weight:800;\\'>فتح الرابط مباشرة</a>'" />`;
+      qrModal.classList.add('open');
+    }
+
+    function closeQrModal() {
+      qrModal.classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeQrModal();
+    });
+
     // تصفية أبرز مشاريعنا
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -1340,7 +1644,7 @@
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
     revealEls.forEach((el) => observer.observe(el));
 
@@ -1351,7 +1655,8 @@
 
     function getContactData() {
       return {
-        name: 'الإتقان للدعاية والإعلان',
+        org: 'الإتقان للدعاية والإعلان',
+        owner: document.getElementById('cardOwner').textContent.trim(),
         phone: document.getElementById('cardPhone').textContent.trim(),
         email: document.getElementById('cardEmail').textContent.trim(),
         address: document.getElementById('cardAddress').textContent.trim(),
@@ -1361,7 +1666,7 @@
 
     copyBtn.addEventListener('click', async () => {
       const d = getContactData();
-      const text = `${d.name}\nالهاتف / واتساب: ${d.phone}\nالبريد: ${d.email}\nالعنوان: ${d.address}\nساعات العمل: ${d.hours}`;
+      const text = `${d.org}\nالاسم: ${d.owner}\nالهاتف / واتساب: ${d.phone}\nالبريد: ${d.email}\nالعنوان: ${d.address}\nساعات العمل: ${d.hours}`;
       try {
         await navigator.clipboard.writeText(text);
         copyFeedback.textContent = 'تم نسخ بيانات التواصل بنجاح.';
@@ -1376,11 +1681,12 @@
       const vcard = [
         'BEGIN:VCARD',
         'VERSION:3.0',
-        `FN:${d.name}`,
-        `ORG:${d.name}`,
-        `TEL;TYPE=WORK,VOICE:${d.phone}`,
+        'N:Hariri;Ismail;;;',
+        'FN:إسماعيل حريري - الإتقان للدعاية والإعلان',
+        `ORG:${d.org}`,
+        `TEL;TYPE=CELL,VOICE:${d.phone}`,
         `EMAIL;TYPE=PREF,INTERNET:${d.email}`,
-        `ADR;TYPE=WORK:;;${d.address};;;;`,
+        `ADR;TYPE=WORK:;;${d.address};حلب;;;سوريا`,
         'END:VCARD'
       ].join('\n');
 
@@ -1388,7 +1694,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'alitqan-contact.vcf';
+      a.download = 'ismail-hariri-alitqan.vcf';
       a.click();
       URL.revokeObjectURL(url);
       copyFeedback.textContent = 'تم تجهيز ملف جهة الاتصال (.vcf) لحفظه على هاتفك.';
