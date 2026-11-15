@@ -1250,6 +1250,89 @@
         transition: none !important;
       }
     }
+
+    /* تحسينات مخصصة للهاتف */
+    @media (max-width: 600px) {
+      html, body { width: 100%; overflow-x: clip; }
+      .container { width: min(100% - 28px, 520px); }
+
+      .nav { min-height: 68px; padding-block: 4px; }
+      .brand-logo-slot { width: 104px; height: 60px; }
+      .menu-btn { width: 40px; height: 40px; }
+
+      .hero { padding: 30px 0 34px; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+      .hero-grid > .reveal { text-align: center; }
+      .hero .pill { margin-inline: auto; }
+      .hero h1 { font-size: clamp(1.45rem, 6vw, 1.85rem); line-height: 1.4; margin-bottom: 10px; }
+      .hero p { font-size: .94rem; line-height: 1.8; margin: 0 auto 17px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 18px; }
+      .hero-actions .btn { width: 100%; min-height: 46px; padding: 9px 8px; font-size: .82rem; }
+
+      .quick-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      .fact { min-width: 0; padding: 11px 9px; border-radius: 12px; text-align: center; }
+      .fact:last-child { grid-column: 1 / -1; }
+      .fact strong { font-size: .88rem; line-height: 1.45; }
+      .fact span { font-size: .76rem; line-height: 1.5; }
+
+      .hero-showcase { min-height: 300px; padding: 19px 16px; border-radius: 18px; background-position: center; }
+      .showcase-brand { gap: 11px; }
+      .showcase-brand img { width: 68px; height: 66px; padding: 5px; border-radius: 13px; }
+      .showcase-brand strong { font-size: clamp(1rem, 4.5vw, 1.3rem); }
+      .showcase-brand span { display: block; font-size: .65rem; letter-spacing: .04em; }
+      .showcase-headline { margin-top: 18px; }
+      .showcase-headline h3 { font-size: 1.28rem; line-height: 1.45; }
+      .showcase-headline p { font-size: .84rem; line-height: 1.7; }
+      .showcase-services { gap: 6px; margin-top: 18px; }
+      .showcase-services span { padding: 8px 4px; font-size: .68rem; line-height: 1.45; }
+      .showcase-services b { font-size: 1rem; }
+
+      section { padding: 38px 0; }
+      .section-header { margin-bottom: 22px; padding-inline: 4px; }
+      .section-header h2 { font-size: 1.4rem; line-height: 1.4; }
+      .section-header p { font-size: .86rem; line-height: 1.7; }
+
+      .overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .overview-card { min-width: 0; padding: 13px 11px; border-radius: 13px; }
+      .overview-card span { font-size: .68rem; padding: 3px 7px; margin-bottom: 7px; }
+      .overview-card h3 { font-size: .88rem; line-height: 1.5; }
+      .overview-card p { font-size: .78rem; line-height: 1.65; }
+
+      .grid-3 { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+      .service-card { padding: 16px; gap: 8px; }
+      .service-card h3 { font-size: .98rem; }
+      .service-card p { font-size: .84rem; line-height: 1.7; }
+      .service-icon { width: 46px; height: 46px; }
+
+      .filters { gap: 6px; margin-bottom: 18px; }
+      .filter-btn { min-height: 36px; padding: 7px 11px; font-size: .78rem; }
+      .project-media { aspect-ratio: 16 / 10; }
+      .project-body { padding: 14px; }
+
+      .contact-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .business-card, .qr-panel { padding: 14px; border-radius: 14px; }
+      .business-card-image { width: 100%; height: auto; object-fit: contain; }
+      .bcard-actions { gap: 8px; }
+      .bcard-actions .btn { width: 100%; min-height: 44px; }
+      .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .qr-card { min-width: 0; padding: 10px; }
+      .qr-box { width: 100%; max-width: 160px; margin-inline: auto; }
+      .qr-card-title { font-size: .82rem; }
+      footer { padding: 19px 0; font-size: .78rem; }
+    }
+
+    @media (max-width: 380px) {
+      .container { width: calc(100% - 22px); }
+      .hero-actions { grid-template-columns: 1fr; }
+      .hero-showcase { min-height: 285px; padding: 16px 13px; }
+      .showcase-brand img { width: 58px; height: 58px; }
+      .showcase-brand strong { font-size: .98rem; }
+      .showcase-services span { font-size: .62rem; }
+      .overview-card { padding: 11px 9px; }
+      .overview-card h3 { font-size: .82rem; }
+      .qr-grid { grid-template-columns: 1fr 1fr; }
+    }
+
   </style>
 </head>
 <body>
