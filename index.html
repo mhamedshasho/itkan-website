@@ -31,7 +31,7 @@
       --accent: #ea580c;
       --accent-hover: #c2410c;
       --accent-soft: rgba(234, 88, 12, 0.1);
-      --header-bg: rgba(255, 255, 255, 0.9);
+      --header-bg: rgba(255, 255, 255, 0.92);
       --header-border: #e2e8f0;
       --hero-bg: linear-gradient(160deg, #fff7ed 0%, #ffffff 55%, #f8fafc 100%);
       --card-gradient: linear-gradient(135deg, #fff7ed 0%, #ffffff 60%, #ffedd5 140%);
@@ -53,7 +53,7 @@
       --accent: #f97316;
       --accent-hover: #fb923c;
       --accent-soft: rgba(249, 115, 22, 0.14);
-      --header-bg: rgba(7, 7, 9, 0.88);
+      --header-bg: rgba(7, 7, 9, 0.9);
       --header-border: #1e1e28;
       --hero-bg: radial-gradient(circle at 15% 10%, rgba(249, 115, 22, 0.14), transparent 42%),
                  linear-gradient(180deg, #09090c 0%, #070709 100%);
@@ -66,6 +66,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      overflow-wrap: anywhere;
     }
 
     html {
@@ -77,7 +78,7 @@
       font-family: 'Cairo', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.72;
       overflow-x: hidden;
       transition: background-color var(--transition), color var(--transition);
     }
@@ -100,8 +101,8 @@
     /* حركات الظهور */
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal.visible {
@@ -134,21 +135,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 74px;
-      gap: 14px;
+      min-height: 70px;
+      gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
+      flex: 1;
     }
 
-    /* مكان الشعار في الهيدر */
     .brand-logo-slot {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border-radius: 12px;
       background: var(--surface-elevated);
       border: 1px solid var(--border);
@@ -173,12 +174,16 @@
       background: linear-gradient(135deg, var(--accent), #f59e0b);
       color: #fff;
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+    }
+
+    .brand-text {
+      min-width: 0;
     }
 
     .brand-title {
       font-weight: 800;
-      font-size: 1.06rem;
+      font-size: 1.04rem;
       line-height: 1.25;
       white-space: nowrap;
       overflow: hidden;
@@ -186,8 +191,11 @@
     }
 
     .brand-sub {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -227,7 +235,8 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .theme-btn,
@@ -242,6 +251,7 @@
       place-items: center;
       cursor: pointer;
       font-size: 1.05rem;
+      flex-shrink: 0;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
@@ -258,8 +268,8 @@
     .mobile-drawer {
       display: none;
       flex-direction: column;
-      gap: 8px;
-      padding: 14px 4% 20px;
+      gap: 6px;
+      padding: 12px 4% 18px;
       border-top: 1px solid var(--border);
       background: var(--surface);
     }
@@ -269,9 +279,10 @@
     }
 
     .mobile-drawer a {
-      padding: 10px 12px;
+      padding: 11px 12px;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 0.94rem;
       color: var(--text-secondary);
     }
 
@@ -285,7 +296,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 20px;
+      min-height: 44px;
+      padding: 11px 20px;
       border-radius: 11px;
       font-family: inherit;
       font-weight: 700;
@@ -325,7 +337,7 @@
     /* Hero */
     .hero {
       background: var(--hero-bg);
-      padding: 72px 0 80px;
+      padding: 68px 0 76px;
       border-bottom: 1px solid var(--border);
       transition: background var(--transition);
     }
@@ -333,7 +345,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.95fr;
-      gap: 36px;
+      gap: 34px;
       align-items: center;
     }
 
@@ -346,16 +358,16 @@
       border: 1px solid rgba(249, 115, 22, 0.28);
       padding: 6px 14px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: clamp(1.95rem, 4.2vw, 2.85rem);
-      line-height: 1.25;
+      font-size: clamp(1.85rem, 4.2vw, 2.8rem);
+      line-height: 1.26;
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero h1 span {
@@ -364,8 +376,8 @@
 
     .hero p {
       color: var(--text-secondary);
-      font-size: 1.02rem;
-      margin-bottom: 26px;
+      font-size: 1rem;
+      margin-bottom: 24px;
       max-width: 58ch;
     }
 
@@ -373,14 +385,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding-top: 22px;
+      gap: 12px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
     }
 
@@ -388,18 +400,18 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 12px;
       box-shadow: var(--shadow-sm);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       color: var(--text);
     }
 
     .stat span {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
     }
 
@@ -407,13 +419,13 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       box-shadow: var(--shadow-md);
       animation: floatSlow 6s ease-in-out infinite;
     }
 
     .hero-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       margin-bottom: 14px;
     }
 
@@ -428,7 +440,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 0.93rem;
+      font-size: 0.91rem;
       color: var(--text-secondary);
     }
 
@@ -441,14 +453,14 @@
       display: grid;
       place-items: center;
       font-weight: 800;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       flex-shrink: 0;
       margin-top: 3px;
     }
 
     /* الأقسام */
     section {
-      padding: 76px 0;
+      padding: 72px 0;
     }
 
     .section-alt {
@@ -459,30 +471,31 @@
     .section-header {
       text-align: center;
       max-width: 640px;
-      margin: 0 auto 44px;
+      margin: 0 auto 40px;
     }
 
     .section-header h2 {
-      font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .section-header p {
       color: var(--muted);
+      font-size: 0.94rem;
     }
 
     /* من نحن */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 24px;
       align-items: stretch;
     }
 
     .about-box {
       background: var(--surface);
-      padding: 30px;
+      padding: 28px;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
@@ -493,23 +506,24 @@
 
     .about-box h3 {
       margin-bottom: 12px;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
 
     .about-box p {
       color: var(--text-secondary);
       margin-bottom: 12px;
+      font-size: 0.94rem;
     }
 
     .features-mini {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
 
     .mini-card {
       background: var(--surface);
-      padding: 20px;
+      padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
@@ -523,57 +537,57 @@
 
     .mini-card h4 {
       margin-bottom: 6px;
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     .mini-card p {
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
     /* الخدمات */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 20px;
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       box-shadow: var(--shadow-sm);
       transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
 
     .icon-box {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border-radius: 12px;
       background: var(--accent-soft);
       color: var(--accent);
       display: grid;
       place-items: center;
       font-weight: 800;
-      font-size: 1.05rem;
-      margin-bottom: 16px;
+      font-size: 1rem;
+      margin-bottom: 14px;
     }
 
     .card h3 {
-      font-size: 1.1rem;
+      font-size: 1.06rem;
       margin-bottom: 8px;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     /* أبرز مشاريعنا */
@@ -581,19 +595,20 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 8px;
+      margin-bottom: 26px;
     }
 
     .filter-btn {
-      padding: 9px 18px;
+      min-height: 38px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text-secondary);
       font-family: inherit;
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -617,7 +632,7 @@
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
@@ -648,7 +663,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 18px;
+      padding: 16px;
       background: linear-gradient(135deg, var(--surface-elevated), var(--bg-alt));
       color: var(--muted);
       gap: 6px;
@@ -656,11 +671,11 @@
 
     .project-fallback strong {
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
     .project-fallback code {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       padding: 3px 8px;
       border-radius: 6px;
       background: var(--accent-soft);
@@ -670,32 +685,32 @@
 
     .tag {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 10px;
+      right: 10px;
       background: rgba(9, 9, 12, 0.78);
       color: #fff;
       backdrop-filter: blur(6px);
-      padding: 4px 11px;
+      padding: 4px 10px;
       border-radius: 999px;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 700;
       z-index: 2;
     }
 
     .project-body {
-      padding: 20px;
+      padding: 18px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .project-body h3 {
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       margin-bottom: 6px;
     }
 
     .project-body p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--muted);
     }
 
@@ -707,15 +722,15 @@
     .contact-card-wrapper {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+      gap: 24px;
       align-items: center;
     }
 
     .business-card {
       background: var(--card-gradient);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 26px;
       box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
@@ -727,40 +742,27 @@
       border-color: var(--accent);
     }
 
-    .business-card::before {
-      content: "";
-      position: absolute;
-      top: -60px;
-      left: -60px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      pointer-events: none;
-    }
-
     .bcard-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
+      gap: 14px;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
       border-bottom: 1px dashed var(--border);
-      position: relative;
-      z-index: 1;
     }
 
     .bcard-identity {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      min-width: 0;
     }
 
     .bcard-logo-slot {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
       background: var(--surface);
       border: 1px solid var(--border);
       display: grid;
@@ -774,37 +776,36 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 6px;
+      padding: 5px;
     }
 
     .bcard-badge {
-      padding: 5px 12px;
+      padding: 5px 11px;
       border-radius: 999px;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
       background: var(--accent-soft);
       color: var(--accent);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .bcard-details {
       display: grid;
-      gap: 12px;
-      margin-bottom: 22px;
-      position: relative;
-      z-index: 1;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .bcard-row {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 12px;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 11px;
       background: var(--surface);
       border: 1px solid var(--border);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .bcard-row span:first-child {
@@ -823,49 +824,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      position: relative;
-      z-index: 1;
     }
 
     .card-copy-feedback {
-      margin-top: 12px;
-      font-size: 0.86rem;
+      margin-top: 10px;
+      font-size: 0.84rem;
       color: var(--accent);
       font-weight: 700;
-      min-height: 22px;
-    }
-
-    /* التواصل وعرض السعر */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 30px;
-      align-items: start;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .info-item {
-      background: var(--surface);
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .info-item strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.92rem;
-    }
-
-    .info-item span {
-      color: var(--muted);
-      font-size: 0.9rem;
+      min-height: 20px;
     }
 
     .editable-hint {
@@ -873,79 +839,25 @@
       font-weight: 600;
     }
 
-    form {
-      background: var(--surface);
-      padding: 28px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      display: grid;
-      gap: 16px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-family: inherit;
-      font-size: 0.94rem;
-      background: var(--bg-alt);
-      color: var(--text);
-      transition: border-color 0.2s ease, background var(--transition);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      background: var(--surface);
-    }
-
-    .form-msg {
-      padding: 12px 14px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      display: none;
-    }
-
     footer {
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
       color: var(--muted);
-      padding: 28px 0;
+      padding: 24px 0;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
     }
 
-    /* استجابة الهاتف والشاشات المتوسطة */
+    /* استجابة الهواتف المتوسطة */
     @media (max-width: 920px) {
       .hero-grid,
       .about-grid,
-      .contact-grid,
       .contact-card-wrapper,
       .grid-3 {
         grid-template-columns: 1fr;
       }
 
-      .nav-links,
-      .nav-actions .btn-primary {
+      .nav-links {
         display: none;
       }
 
@@ -959,14 +871,53 @@
       }
     }
 
-    @media (max-width: 560px) {
+    /* استجابة الهواتف الصغيرة (حتى 480px) */
+    @media (max-width: 480px) {
+      .container {
+        width: 94%;
+      }
+
+      .nav {
+        min-height: 62px;
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-logo-slot {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+      }
+
+      .brand-title {
+        font-size: 0.94rem;
+      }
+
+      .brand-sub {
+        font-size: 0.68rem;
+      }
+
+      .theme-btn,
+      .menu-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        font-size: 0.96rem;
+      }
+
       section,
       .hero {
-        padding: 54px 0;
+        padding: 46px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.62rem;
       }
 
       .stats,
-      .form-row,
       .features-mini {
         grid-template-columns: 1fr;
       }
@@ -976,25 +927,56 @@
         width: 100%;
       }
 
-      form,
       .about-box,
       .hero-card,
-      .business-card {
-        padding: 20px;
+      .business-card,
+      .card {
+        padding: 16px;
+        border-radius: 14px;
       }
 
       .bcard-top {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+      }
+
+      .bcard-logo-slot {
+        width: 50px;
+        height: 50px;
       }
 
       .bcard-row {
         flex-direction: column;
         gap: 4px;
+        padding: 9px 11px;
+        font-size: 0.84rem;
       }
 
       .bcard-row span:last-child {
         text-align: right;
+      }
+    }
+
+    /* استجابة الهواتف الضيقة جداً (360px وأقل) */
+    @media (max-width: 360px) {
+      .brand-sub {
+        display: none;
+      }
+
+      .brand-title {
+        font-size: 0.88rem;
+      }
+
+      .hero h1 {
+        font-size: 1.45rem;
+      }
+
+      .pill {
+        font-size: 0.76rem;
+        padding: 5px 11px;
       }
     }
 
@@ -1013,12 +995,11 @@
   <header>
     <div class="container nav">
       <a href="#" class="brand">
-        <!-- مكان الشعار في الهيدر: ضع ملف الشعار باسم images/logo.png -->
         <div class="brand-logo-slot">
           <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
           <span class="brand-fallback" style="display:none;">إ</span>
         </div>
-        <div>
+        <div class="brand-text">
           <div class="brand-title">الإتقان للدعاية والإعلان</div>
           <div class="brand-sub">طباعة • هوية بصرية • لوحات وتغليف</div>
         </div>
@@ -1029,14 +1010,12 @@
         <a href="#services">خدماتنا</a>
         <a href="#featured-projects">أبرز مشاريعنا</a>
         <a href="#contact-card">كرت التواصل</a>
-        <a href="#quote">اطلب عرض سعر</a>
       </nav>
 
       <div class="nav-actions">
         <button type="button" class="theme-btn" id="themeToggle" aria-label="تبديل الوضع الليلي والنهاري" title="تبديل الوضع الليلي والنهاري">
           <span id="themeIcon">🌙</span>
         </button>
-        <a href="#quote" class="btn btn-primary">عرض سعر فوري</a>
         <button type="button" class="menu-btn" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -1046,7 +1025,6 @@
       <a href="#services">خدماتنا</a>
       <a href="#featured-projects">أبرز مشاريعنا</a>
       <a href="#contact-card">كرت التواصل</a>
-      <a href="#quote">اطلب عرض سعر</a>
     </div>
   </header>
 
@@ -1059,8 +1037,8 @@
           في <strong>الإتقان للدعاية والإعلان</strong> نجمع بين دقة الطباعة الحديثة، وخامات التصنيع الموثوقة، والتنفيذ المتقن الذي يخدم هدفك التسويقي من الفكرة وحتى التسليم النهائي.
         </p>
         <div class="hero-actions">
-          <a href="#quote" class="btn btn-primary">اطلب تسعيرة مشروعك</a>
-          <a href="#contact-card" class="btn btn-outline">كرت التواصل</a>
+          <a href="#contact-card" class="btn btn-primary">كرت التواصل</a>
+          <a href="#featured-projects" class="btn btn-outline">تصفح أبرز مشاريعنا</a>
         </div>
         <div class="stats">
           <div class="stat">
@@ -1250,7 +1228,6 @@
     </div>
   </section>
 
-  <!-- قسم كرت التواصل الرقمي -->
   <section id="contact-card" class="section-alt">
     <div class="container">
       <div class="section-header reveal">
@@ -1262,14 +1239,13 @@
         <div class="business-card reveal">
           <div class="bcard-top">
             <div class="bcard-identity">
-              <!-- مكان الشعار داخل كرت التواصل -->
               <div class="bcard-logo-slot">
                 <img src="images/logo.png" alt="شعار الإتقان للدعاية والإعلان" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
                 <span class="brand-fallback" style="display:none;">إ</span>
               </div>
               <div>
-                <h3 style="font-size: 1.2rem; line-height: 1.3;">الإتقان للدعاية والإعلان</h3>
-                <p style="font-size: 0.85rem; color: var(--muted);">طباعة • هوية بصرية • لوحات وتغليف</p>
+                <h3 style="font-size: 1.12rem; line-height: 1.3;">الإتقان للدعاية والإعلان</h3>
+                <p style="font-size: 0.82rem; color: var(--muted);">طباعة • هوية بصرية • لوحات وتغليف</p>
               </div>
             </div>
             <span class="bcard-badge">بطاقة تواصل رسمية</span>
@@ -1286,7 +1262,6 @@
             </div>
             <div class="bcard-row">
               <span>العنوان</span>
-              <!-- عدّل العنوان من هنا -->
               <span id="cardAddress" class="editable-hint">اكتب عنوان المطبعة هنا</span>
             </div>
             <div class="bcard-row">
@@ -1305,86 +1280,13 @@
         <div class="about-box reveal delay-1">
           <h3>تواصل سريع ومباشر</h3>
           <p>
-            يمكنك حفظ كرت التواصل في جهات اتصال هاتفك للرجوع إليه عند طلب أي مطبوعات، أو إرسال تفاصيل مشروعك مباشرة عبر نموذج عرض السعر بالأسفل.
+            يمكنك حفظ كرت التواصل في جهات اتصال هاتفك للرجوع إليه عند طلب أي مطبوعات أو لوحات إعلانية.
           </p>
-          <p style="margin-bottom: 20px;">
+          <p style="margin-bottom: 0;">
             لإضافة شعارك، ضع صورة الشعار داخل مجلد <code>images/</code> باسم <code>logo.png</code> وسيظهر تلقائياً في الشريط العلوي وفي كرت التواصل.
           </p>
-          <a href="#quote" class="btn btn-primary">انتقل لنموذج طلب عرض السعر</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="quote">
-    <div class="container contact-grid">
-      <div class="reveal">
-        <span class="pill">طلب تسعيرة</span>
-        <h2 style="font-size: clamp(1.55rem, 3vw, 2rem); margin-bottom: 12px;">اطلب عرض سعر لمشروعك</h2>
-        <p style="color: var(--muted);">
-          أرسل لنا تفاصيل الخدمة المطلوبة، المقاس التقريبي، والكمية، وسنقوم بالرد عليك بالتكلفة والمدة الزمنية المتوقعة.
-        </p>
-
-        <div class="info-list">
-          <div class="info-item">
-            <strong>اسم المنشأة</strong>
-            <span>الإتقان للدعاية والإعلان</span>
-          </div>
-          <div class="info-item">
-            <strong>الهاتف / واتساب</strong>
-            <span dir="ltr">+963 000 000 000</span>
-          </div>
-          <div class="info-item">
-            <strong>البريد الإلكتروني</strong>
-            <span>info@alitqan-print.com</span>
-          </div>
-          <div class="info-item">
-            <strong>العنوان</strong>
-            <!-- عدّل العنوان من هنا -->
-            <span class="editable-hint">اكتب عنوان المطبعة هنا</span>
-          </div>
-        </div>
-      </div>
-
-      <form id="quoteForm" class="reveal delay-1" novalidate>
-        <div class="form-row">
-          <div>
-            <label for="name">الاسم الكامل *</label>
-            <input type="text" id="name" name="name" placeholder="مثال: أحمد محمود" required />
-          </div>
-          <div>
-            <label for="phone">رقم الهاتف / واتساب *</label>
-            <input type="tel" id="phone" name="phone" placeholder="مثال: 09XXXXXXXX" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div>
-            <label for="service">نوع الخدمة *</label>
-            <select id="service" name="service" required>
-              <option value="">اختر الخدمة</option>
-              <option value="الطباعة التجارية والأوفست">الطباعة التجارية والأوفست</option>
-              <option value="الطباعة الرقمية السريعة">الطباعة الرقمية السريعة</option>
-              <option value="اللوحات الإعلانية واللافتات">اللوحات الإعلانية واللافتات</option>
-              <option value="الهوية البصرية والتصميم">الهوية البصرية والتصميم</option>
-              <option value="العلب والتغليف المخصص">العلب والتغليف المخصص</option>
-              <option value="المواد الترويجية والمعارض">المواد الترويجية والمعارض</option>
-            </select>
-          </div>
-          <div>
-            <label for="qty">الكمية التقريبية</label>
-            <input type="text" id="qty" name="qty" placeholder="مثال: 1000 نسخة أو لوحة واحدة" />
-          </div>
-        </div>
-
-        <div>
-          <label for="details">تفاصيل الطلب (المقاس، الخامة، الموعد المطلوب)</label>
-          <textarea id="details" name="details" rows="4" placeholder="اكتب تفاصيل مشروعك هنا..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">إرسال طلب عرض السعر</button>
-        <div class="form-msg" id="formMsg"></div>
-      </form>
     </div>
   </section>
 
@@ -1477,7 +1379,7 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
     revealEls.forEach((el) => observer.observe(el));
 
@@ -1530,34 +1432,6 @@
       URL.revokeObjectURL(url);
       copyFeedback.textContent = 'تم تجهيز ملف جهة الاتصال (.vcf) لحفظه على هاتفك.';
       setTimeout(() => { copyFeedback.textContent = ''; }, 3500);
-    });
-
-    // نموذج طلب عرض السعر
-    const form = document.getElementById('quoteForm');
-    const msgBox = document.getElementById('formMsg');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value;
-      const qty = document.getElementById('qty').value.trim() || 'غير محددة';
-
-      if (!name || !phone || !service) {
-        msgBox.style.display = 'block';
-        msgBox.style.background = 'rgba(239, 68, 68, 0.12)';
-        msgBox.style.color = '#ef4444';
-        msgBox.style.border = '1px solid rgba(239, 68, 68, 0.35)';
-        msgBox.textContent = 'يرجى تعبئة الحقول الإلزامية (الاسم، رقم الهاتف، ونوع الخدمة).';
-        return;
-      }
-
-      msgBox.style.display = 'block';
-      msgBox.style.background = 'rgba(16, 185, 129, 0.12)';
-      msgBox.style.color = '#10b981';
-      msgBox.style.border = '1px solid rgba(16, 185, 129, 0.35)';
-      msgBox.innerHTML = `شكرًا لك يا <strong>${name}</strong>! تم تجهيز طلبك لخدمة <strong>${service}</strong> (الكمية: ${qty}).`;
-      form.reset();
     });
   </script>
 </body>
