@@ -4,62 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
-  <title>الإتقان للدعاية والإعلان | حلول الطباعة والهوية البصرية</title>
+  <title>الإتقان للدعاية والإعلان | طباعة • هوية بصرية • لوحات وتغليف</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <script>
-    (function () {
-      const savedTheme = localStorage.getItem('alitqan-theme');
-      const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme || (systemDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-
   <style>
     :root {
       --bg: #ffffff;
-      --bg-alt: #f8fafc;
+      --bg-alt: #faf8ff;
       --surface: #ffffff;
-      --surface-elevated: #f1f5f9;
-      --text: #0f172a;
-      --text-secondary: #475569;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --accent: #ea580c;
-      --accent-hover: #c2410c;
-      --accent-soft: rgba(234, 88, 12, 0.1);
-      --header-bg: rgba(255, 255, 255, 0.92);
-      --header-border: #e2e8f0;
-      --hero-bg: linear-gradient(160deg, #fff7ed 0%, #ffffff 55%, #f8fafc 100%);
-      --card-gradient: linear-gradient(135deg, #fff7ed 0%, #ffffff 60%, #ffedd5 140%);
-      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 16px 36px rgba(15, 23, 42, 0.08);
+      --surface-elevated: #f3e8ff;
+      --text: #181028;
+      --text-secondary: #473f5c;
+      --muted: #6d6485;
+      --border: #e5dcf8;
+      --accent: #7c3aed;
+      --accent-hover: #6d28d9;
+      --accent-soft: rgba(124, 58, 237, 0.1);
+      --accent-glow: rgba(124, 58, 237, 0.22);
+      --header-bg: rgba(255, 255, 255, 0.9);
+      --hero-bg: radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.12), transparent 45%),
+                 linear-gradient(180deg, #faf8ff 0%, #ffffff 100%);
+      --card-gradient: linear-gradient(135deg, #f5f3ff 0%, #ffffff 58%, #ede9fe 140%);
+      --shadow-sm: 0 4px 16px rgba(24, 16, 40, 0.05);
+      --shadow-md: 0 16px 36px rgba(24, 16, 40, 0.08);
       --radius: 16px;
       --transition: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    [data-theme="dark"] {
-      --bg: #070709;
-      --bg-alt: #0d0d11;
-      --surface: #121218;
-      --surface-elevated: #191922;
-      --text: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --muted: #94a3b8;
-      --border: #242430;
-      --accent: #f97316;
-      --accent-hover: #fb923c;
-      --accent-soft: rgba(249, 115, 22, 0.14);
-      --header-bg: rgba(7, 7, 9, 0.9);
-      --header-border: #1e1e28;
-      --hero-bg: radial-gradient(circle at 15% 10%, rgba(249, 115, 22, 0.14), transparent 42%),
-                 linear-gradient(180deg, #09090c 0%, #070709 100%);
-      --card-gradient: linear-gradient(145deg, #161620 0%, #101016 55%, rgba(249, 115, 22, 0.14) 140%);
-      --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.35);
-      --shadow-md: 0 20px 44px rgba(0, 0, 0, 0.55);
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #070709;
+        --bg-alt: #0d0b12;
+        --surface: #13101c;
+        --surface-elevated: #1c162b;
+        --text: #f5f3ff;
+        --text-secondary: #d4cce8;
+        --muted: #9b90b5;
+        --border: #2a2240;
+        --accent: #a855f7;
+        --accent-hover: #c084fc;
+        --accent-soft: rgba(168, 85, 247, 0.15);
+        --accent-glow: rgba(168, 85, 247, 0.25);
+        --header-bg: rgba(7, 7, 9, 0.9);
+        --hero-bg: radial-gradient(circle at 15% 10%, rgba(168, 85, 247, 0.16), transparent 44%),
+                   linear-gradient(180deg, #0c0914 0%, #070709 100%);
+        --card-gradient: linear-gradient(145deg, #1a1429 0%, #110e1a 55%, rgba(168, 85, 247, 0.16) 140%);
+        --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.38);
+        --shadow-md: 0 20px 44px rgba(0, 0, 0, 0.55);
+      }
     }
 
     * {
@@ -98,11 +92,11 @@
       margin: 0 auto;
     }
 
-    /* حركات الظهور */
+    /* حركات ظهور خفيفة ومرتبة */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal.visible {
@@ -110,14 +104,8 @@
       transform: translateY(0);
     }
 
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
+    .delay-1 { transition-delay: 0.07s; }
+    .delay-2 { transition-delay: 0.14s; }
 
     /* الهيدر */
     header {
@@ -127,8 +115,7 @@
       background: var(--header-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--header-border);
-      transition: background var(--transition), border-color var(--transition);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
@@ -171,7 +158,7 @@
       height: 100%;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--accent), #f59e0b);
+      background: linear-gradient(135deg, var(--accent), #c084fc);
       color: #fff;
       font-weight: 800;
       font-size: 1.15rem;
@@ -202,7 +189,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--text-secondary);
     }
@@ -232,37 +219,17 @@
       width: 100%;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .theme-btn,
     .menu-btn {
+      display: none;
       width: 42px;
       height: 42px;
       border-radius: 11px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text);
-      display: grid;
-      place-items: center;
+      font-size: 1.15rem;
       cursor: pointer;
-      font-size: 1.05rem;
       flex-shrink: 0;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .theme-btn:hover,
-    .menu-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-
-    .menu-btn {
-      display: none;
     }
 
     .mobile-drawer {
@@ -279,7 +246,7 @@
     }
 
     .mobile-drawer a {
-      padding: 11px 12px;
+      padding: 10px 12px;
       border-radius: 10px;
       font-weight: 700;
       font-size: 0.94rem;
@@ -304,7 +271,7 @@
       font-size: 0.92rem;
       cursor: pointer;
       border: none;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .btn:active {
@@ -314,7 +281,7 @@
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 10px 22px rgba(234, 88, 12, 0.24);
+      box-shadow: 0 10px 22px var(--accent-glow);
     }
 
     .btn-primary:hover {
@@ -337,15 +304,14 @@
     /* Hero */
     .hero {
       background: var(--hero-bg);
-      padding: 68px 0 76px;
+      padding: 64px 0 72px;
       border-bottom: 1px solid var(--border);
-      transition: background var(--transition);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.95fr;
-      gap: 34px;
+      gap: 32px;
       align-items: center;
     }
 
@@ -355,8 +321,8 @@
       gap: 8px;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid rgba(249, 115, 22, 0.28);
-      padding: 6px 14px;
+      border: 1px solid var(--accent-glow);
+      padding: 5px 14px;
       border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 700;
@@ -364,8 +330,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(1.85rem, 4.2vw, 2.8rem);
-      line-height: 1.26;
+      font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+      line-height: 1.25;
       font-weight: 800;
       margin-bottom: 14px;
     }
@@ -376,27 +342,25 @@
 
     .hero p {
       color: var(--text-secondary);
-      font-size: 1rem;
-      margin-bottom: 24px;
-      max-width: 58ch;
+      font-size: 0.98rem;
+      margin-bottom: 22px;
+      max-width: 56ch;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
-    .stats {
+    .quick-facts {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
     }
 
-    .stat {
+    .fact {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -404,63 +368,65 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .stat strong {
+    .fact strong {
       display: block;
-      font-size: 0.98rem;
-      color: var(--text);
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin-bottom: 2px;
     }
 
-    .stat span {
+    .fact span {
       font-size: 0.78rem;
       color: var(--muted);
     }
 
-    .hero-card {
+    .hero-panel {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow-md);
-      animation: floatSlow 6s ease-in-out infinite;
     }
 
-    .hero-card h3 {
-      font-size: 1.12rem;
-      margin-bottom: 14px;
+    .hero-panel h3 {
+      font-size: 1.08rem;
+      margin-bottom: 12px;
     }
 
-    .checklist {
+    .key-points {
       list-style: none;
       display: grid;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
     }
 
-    .checklist li {
+    .key-points li {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 0.91rem;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      font-size: 0.89rem;
       color: var(--text-secondary);
     }
 
-    .check-dot {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
+    .badge-num {
+      min-width: 24px;
+      height: 24px;
+      border-radius: 7px;
       background: var(--accent-soft);
       color: var(--accent);
       display: grid;
       place-items: center;
       font-weight: 800;
       font-size: 0.76rem;
-      flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     /* الأقسام */
     section {
-      padding: 72px 0;
+      padding: 68px 0;
     }
 
     .section-alt {
@@ -470,79 +436,61 @@
 
     .section-header {
       text-align: center;
-      max-width: 640px;
-      margin: 0 auto 40px;
+      max-width: 620px;
+      margin: 0 auto 38px;
     }
 
     .section-header h2 {
-      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      font-size: clamp(1.5rem, 3.2vw, 2.05rem);
       font-weight: 800;
       margin-bottom: 8px;
     }
 
     .section-header p {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
     }
 
-    /* من نحن */
-    .about-grid {
+    /* ملخص سريع ومن نحن */
+    .overview-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .about-box {
+    .overview-card {
       background: var(--surface);
-      padding: 28px;
-      border-radius: var(--radius);
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-box h3 {
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-    }
-
-    .about-box p {
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-      font-size: 0.94rem;
-    }
-
-    .features-mini {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .mini-card {
-      background: var(--surface);
-      padding: 18px;
       border-radius: var(--radius);
-      border: 1px solid var(--border);
+      padding: 20px;
       box-shadow: var(--shadow-sm);
       transition: transform var(--transition), border-color var(--transition);
     }
 
-    .mini-card:hover {
+    .overview-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
     }
 
-    .mini-card h4 {
-      margin-bottom: 6px;
-      font-size: 0.98rem;
+    .overview-card span {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
     }
 
-    .mini-card p {
-      color: var(--muted);
+    .overview-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .overview-card p {
       font-size: 0.86rem;
+      color: var(--muted);
     }
 
     /* الخدمات */
@@ -552,42 +500,53 @@
       gap: 20px;
     }
 
-    .card {
+    .service-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
     }
 
-    .card:hover {
+    .service-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
 
-    .icon-box {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .service-code {
+      padding: 4px 10px;
+      border-radius: 8px;
       background: var(--accent-soft);
       color: var(--accent);
-      display: grid;
-      place-items: center;
       font-weight: 800;
-      font-size: 1rem;
-      margin-bottom: 14px;
+      font-size: 0.8rem;
     }
 
-    .card h3 {
-      font-size: 1.06rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
+    .service-spec {
+      font-size: 0.76rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .service-card h3 {
+      font-size: 1.04rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
     }
 
     /* أبرز مشاريعنا */
@@ -608,7 +567,7 @@
       color: var(--text-secondary);
       font-family: inherit;
       font-weight: 700;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -664,7 +623,7 @@
       justify-content: center;
       text-align: center;
       padding: 16px;
-      background: linear-gradient(135deg, var(--surface-elevated), var(--bg-alt));
+      background: var(--card-gradient);
       color: var(--muted);
       gap: 6px;
     }
@@ -687,7 +646,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      background: rgba(9, 9, 12, 0.78);
+      background: rgba(15, 10, 28, 0.82);
       color: #fff;
       backdrop-filter: blur(6px);
       padding: 4px 10px;
@@ -710,7 +669,7 @@
     }
 
     .project-body p {
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       color: var(--muted);
     }
 
@@ -718,10 +677,10 @@
       display: none !important;
     }
 
-    /* كرت التواصل الرقمي */
+    /* كرت التواصل */
     .contact-card-wrapper {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 24px;
       align-items: center;
     }
@@ -732,8 +691,6 @@
       border-radius: 20px;
       padding: 26px;
       box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
       transition: transform var(--transition), border-color var(--transition);
     }
 
@@ -820,6 +777,11 @@
       text-align: left;
     }
 
+    .editable-hint {
+      color: var(--accent) !important;
+      font-weight: 700;
+    }
+
     .bcard-actions {
       display: flex;
       flex-wrap: wrap;
@@ -834,9 +796,23 @@
       min-height: 20px;
     }
 
-    .editable-hint {
-      color: var(--accent) !important;
-      font-weight: 600;
+    .info-box {
+      background: var(--surface);
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
     }
 
     footer {
@@ -848,13 +824,16 @@
       font-size: 0.86rem;
     }
 
-    /* استجابة الهواتف المتوسطة */
-    @media (max-width: 920px) {
+    /* استجابة الشاشات المتوسطة */
+    @media (max-width: 960px) {
       .hero-grid,
-      .about-grid,
       .contact-card-wrapper,
       .grid-3 {
         grid-template-columns: 1fr;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .nav-links {
@@ -864,10 +843,6 @@
       .menu-btn {
         display: grid;
         place-items: center;
-      }
-
-      .hero-card {
-        animation: none;
       }
     }
 
@@ -900,12 +875,11 @@
         font-size: 0.68rem;
       }
 
-      .theme-btn,
       .menu-btn {
         width: 38px;
         height: 38px;
         border-radius: 9px;
-        font-size: 0.96rem;
+        font-size: 1rem;
       }
 
       section,
@@ -917,8 +891,8 @@
         font-size: 1.62rem;
       }
 
-      .stats,
-      .features-mini {
+      .quick-facts,
+      .overview-grid {
         grid-template-columns: 1fr;
       }
 
@@ -927,10 +901,10 @@
         width: 100%;
       }
 
-      .about-box,
-      .hero-card,
+      .hero-panel,
       .business-card,
-      .card {
+      .info-box,
+      .service-card {
         padding: 16px;
         border-radius: 14px;
       }
@@ -973,11 +947,6 @@
       .hero h1 {
         font-size: 1.45rem;
       }
-
-      .pill {
-        font-size: 0.76rem;
-        padding: 5px 11px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1006,23 +975,18 @@
       </a>
 
       <nav class="nav-links" aria-label="التنقل الرئيسي">
-        <a href="#about">من نحن</a>
-        <a href="#services">خدماتنا</a>
+        <a href="#summary">نظرة سريعة</a>
+        <a href="#services">الخدمات</a>
         <a href="#featured-projects">أبرز مشاريعنا</a>
         <a href="#contact-card">كرت التواصل</a>
       </nav>
 
-      <div class="nav-actions">
-        <button type="button" class="theme-btn" id="themeToggle" aria-label="تبديل الوضع الليلي والنهاري" title="تبديل الوضع الليلي والنهاري">
-          <span id="themeIcon">🌙</span>
-        </button>
-        <button type="button" class="menu-btn" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-      </div>
+      <button type="button" class="menu-btn" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
     </div>
 
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="#about">من نحن</a>
-      <a href="#services">خدماتنا</a>
+      <a href="#summary">نظرة سريعة</a>
+      <a href="#services">الخدمات</a>
       <a href="#featured-projects">أبرز مشاريعنا</a>
       <a href="#contact-card">كرت التواصل</a>
     </div>
@@ -1031,72 +995,69 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal">
-        <span class="pill">جودة طباعة عالية ودقة في التسليم</span>
-        <h1>نحوّل أفكار علامتك إلى <span>مطبوعات وحضور بصري</span> لا يُنسى</h1>
+        <span class="pill">الإتقان للدعاية والإعلان</span>
+        <h1>حلول طباعية وهوية بصرية <span>واضحة وعملية</span></h1>
         <p>
-          في <strong>الإتقان للدعاية والإعلان</strong> نجمع بين دقة الطباعة الحديثة، وخامات التصنيع الموثوقة، والتنفيذ المتقن الذي يخدم هدفك التسويقي من الفكرة وحتى التسليم النهائي.
+          نركّز على ما يهمك فعلاً: ملفات جاهزة للطباعة دون أخطاء، خامات مناسبة للاستخدام، وتسليم ملتزم بالمواعيد.
         </p>
         <div class="hero-actions">
           <a href="#contact-card" class="btn btn-primary">كرت التواصل</a>
-          <a href="#featured-projects" class="btn btn-outline">تصفح أبرز مشاريعنا</a>
+          <a href="#featured-projects" class="btn btn-outline">أبرز مشاريعنا</a>
         </div>
-        <div class="stats">
-          <div class="stat">
+        <div class="quick-facts">
+          <div class="fact">
             <strong>CMYK / Pantone</strong>
-            <span>مطابقة ألوان دقيقة</span>
+            <span>ثبات ودقة ألوان</span>
           </div>
-          <div class="stat">
-            <strong>خامات متنوعة</strong>
-            <span>ورق، أكريليك، كلادينج، كرتون</span>
+          <div class="fact">
+            <strong>مراجعة فنية</strong>
+            <span>فحص Bleed والقص</span>
           </div>
-          <div class="stat">
-            <strong>التزام بالمواعيد</strong>
-            <span>متابعة من البروفة للتسليم</span>
+          <div class="fact">
+            <strong>تنفيذ متكامل</strong>
+            <span>تصميم، طباعة، تشطيب</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-card reveal delay-1">
-        <h3>لماذا يختار العملاء «الإتقان»؟</h3>
-        <ul class="checklist">
-          <li><span class="check-dot">✓</span><span>مراجعة فنية للملفات قبل الطباعة لتفادي أخطاء القص والهوامش والألوان.</span></li>
-          <li><span class="check-dot">✓</span><span>توفير خيارات خامات متعددة تناسب الميزانية والاستخدام الداخلي أو الخارجي.</span></li>
-          <li><span class="check-dot">✓</span><span>تنفيذ الكميات الصغيرة للديجيتال والكميات الكبيرة للأوفست والتغليف.</span></li>
-          <li><span class="check-dot">✓</span><span>تواصل مباشر وواضح بمراحل التنفيذ ومواعيد الاستلام.</span></li>
+      <div class="hero-panel reveal delay-1">
+        <h3>خلاصة العمل معنا</h3>
+        <ul class="key-points">
+          <li><span class="badge-num">1</span><span><strong>تحديد الخامة الأنسب:</strong> نرشّح لك الورق أو اللوحة أو التغليف حسب الاستخدام والميزانية.</span></li>
+          <li><span class="badge-num">2</span><span><strong>تدقيق قبل التشغيل:</strong> فحص المقاسات، دقة الصور، والهوامش لتجنب الهدر.</span></li>
+          <li><span class="badge-num">3</span><span><strong>مرونة الكميات:</strong> طباعة رقمية للكميات الصغيرة وأوفست للكميات الكبيرة.</span></li>
+          <li><span class="badge-num">4</span><span><strong>تشطيب نهائي مرتب:</strong> سلوفان، قص، تجليد، وتغليف جاهز للاستلام.</span></li>
         </ul>
-        <a href="#services" class="btn btn-primary" style="width: 100%;">استكشف كافة الخدمات</a>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="container about-grid">
-      <div class="about-box reveal">
-        <h3>عن مطبعة الإتقان للدعاية والإعلان</h3>
-        <p>
-          نعمل كشريك تنفيذي للشركات، المتاجر، المؤسسات التعليمية، والجهات التجارية لتقديم حلول طباعية وإعلانية متكاملة؛ بدءًا من تجهيز التصاميم والهويات البصرية، مرورًا بالطباعة الرقمية والأوفست، وصولًا إلى اللوحات الإعلانية والتغليف المخصص.
-        </p>
-        <p style="margin-bottom: 0;">
-          نهتم بأدق التفاصيل — من سماكة الورق ونوع السلوفان وحتى دقة القص ووضوح الطباعة — لضمان نتيجة تليق بعلامتك التجارية.
-        </p>
+  <section id="summary">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>لماذا «الإتقان»؟</h2>
+        <p>أربعة معايير أساسية نلتزم بها في كل مشروع</p>
       </div>
-
-      <div class="features-mini">
-        <div class="mini-card reveal">
-          <h4>فحص ما قبل الطباعة</h4>
-          <p>تدقيق المقاسات، الهوامش (Bleed)، ودقة الصور قبل بدء التشغيل.</p>
+      <div class="overview-grid">
+        <div class="overview-card reveal">
+          <span>01 • الدقة</span>
+          <h3>مطابقة الألوان والقص</h3>
+          <p>إعداد الملفات وتجربة البروفة لضمان تطابق النتيجة مع التصميم المعتمد.</p>
         </div>
-        <div class="mini-card reveal delay-1">
-          <h4>خامات مختارة</h4>
-          <p>تشكيلة واسعة من الورق الفاخر، الكرتون المقوى، واللوحات الخارجية.</p>
+        <div class="overview-card reveal delay-1">
+          <span>02 • الخامات</span>
+          <h3>مواد عملية ومتينة</h3>
+          <p>ورق فاخر وكوشيه، كرتون مقوى، أكريليك، كلادينج، وبنر خارجي.</p>
         </div>
-        <div class="mini-card reveal delay-2">
-          <h4>مرونة في الكميات</h4>
-          <p>حلول مناسبة للنماذج التجريبية والكميات التجارية الكبيرة.</p>
+        <div class="overview-card reveal delay-2">
+          <span>03 • المرونة</span>
+          <h3>كميات صغيرة وكبيرة</h3>
+          <p>تجهيز عينات تجريبية أو تشغيل تجاري واسع بنفس مستوى المتابعة.</p>
         </div>
-        <div class="mini-card reveal delay-3">
-          <h4>تنفيذ متكامل</h4>
-          <p>تصميم، طباعة، تشطيب، وتغليف جاهز للاستلام أو الشحن.</p>
+        <div class="overview-card reveal delay-2">
+          <span>04 • الالتزام</span>
+          <h3>وضوح في المواعيد</h3>
+          <p>جدول زمني محدد من اعتماد التصميم وحتى التسليم النهائي.</p>
         </div>
       </div>
     </div>
@@ -1105,40 +1066,63 @@
   <section id="services" class="section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <h2>خدماتنا الطباعية والإعلانية</h2>
-        <p>حلول متكاملة مصممة لدعم حملاتك التسويقية وهوية نشاطك التجاري</p>
+        <h2>الخدمات الأساسية</h2>
+        <p>أهم الخدمات الطباعية والإعلانية مع الخامة والاستخدام الأنسب</p>
       </div>
 
       <div class="grid-3">
-        <div class="card reveal">
-          <div class="icon-box">01</div>
-          <h3>الطباعة التجارية والأوفست</h3>
-          <p>بروشورات، كتالوجات، مجلات، دفاتر فواتير، أوراق رسمية، ومظاريف بجودة عالية للكميات المتوسطة والكبيرة.</p>
+        <div class="service-card reveal">
+          <div class="service-top">
+            <span class="service-code">01</span>
+            <span class="service-spec">كوشيه • ورق فاخر</span>
+          </div>
+          <h3>طباعة الأوفست</h3>
+          <p>بروشورات، كتالوجات، مجلات، دفاتر فواتير، أوراق رسمية، ومظاريف للكميات المتوسطة والكبيرة.</p>
         </div>
-        <div class="card reveal delay-1">
-          <div class="icon-box">02</div>
+
+        <div class="service-card reveal delay-1">
+          <div class="service-top">
+            <span class="service-code">02</span>
+            <span class="service-spec">تسليم سريع</span>
+          </div>
           <h3>الطباعة الرقمية السريعة</h3>
-          <p>كروت شخصية، فلايرات، بوسترات، منيوهات مطاعم، ودعوات مناسبات بسرعة إنجاز وخيارات تشطيب متنوعة.</p>
+          <p>بطاقات عمل، فلايرات، بوسترات، منيوهات، ودعوات بتشطيب مطفي أو لمّاع.</p>
         </div>
-        <div class="card reveal delay-2">
-          <div class="icon-box">03</div>
+
+        <div class="service-card reveal delay-2">
+          <div class="service-top">
+            <span class="service-code">03</span>
+            <span class="service-spec">كلادينج • أكريليك • بنر</span>
+          </div>
           <h3>اللوحات الإعلانية واللافتات</h3>
-          <p>واجهات كلادينج، حروف بارزة، لوحات أكريليك، بنر وفليكس، وستيكرات واجهات مقاومة لعوامل الطقس.</p>
+          <p>واجهات محلات، حروف بارزة، لوحات إرشادية، وستيكرات واجهات مقاومة للعوامل الجوية.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon-box">04</div>
+
+        <div class="service-card reveal">
+          <div class="service-top">
+            <span class="service-code">04</span>
+            <span class="service-spec">ملفات جاهزة للطباعة</span>
+          </div>
           <h3>الهوية البصرية والتصميم</h3>
-          <p>تصميم الشعارات، بطاقات الأعمال، الملفات التعريفية، وتجهيز المطبوعات بأسلوب متناسق يعكس شخصيتك.</p>
+          <p>شعارات، بطاقات تعريفية، ملفات شركات، وتنسيق مطبوعات متكامل.</p>
         </div>
-        <div class="card reveal delay-1">
-          <div class="icon-box">05</div>
+
+        <div class="service-card reveal delay-1">
+          <div class="service-top">
+            <span class="service-code">05</span>
+            <span class="service-spec">كرتون • ملصقات</span>
+          </div>
           <h3>العلب والتغليف المخصص</h3>
-          <p>صناديق منتجات، أكياس ورقية بشعارك، ملصقات لاصقة (Labels)، وأغلفة تحمي منتجك وتبرز قيمته.</p>
+          <p>صناديق منتجات، أكياس ورقية مطبوعة، وملصقات لاصقة بقص دقيق.</p>
         </div>
-        <div class="card reveal delay-2">
-          <div class="icon-box">06</div>
-          <h3>المواد الترويجية والمعارض</h3>
-          <p>رول أب (Roll-up)، ستاندات عرض، أجندات سنوية، وأقلام وهدايا دعائية للمؤتمرات والفعاليات.</p>
+
+        <div class="service-card reveal delay-2">
+          <div class="service-top">
+            <span class="service-code">06</span>
+            <span class="service-spec">معارض وفعاليات</span>
+          </div>
+          <h3>المواد الترويجية والستاندات</h3>
+          <p>رول أب (Roll-up)، ستاندات عرض، أجندات، وهدايا دعائية للمؤتمرات.</p>
         </div>
       </div>
     </div>
@@ -1148,7 +1132,7 @@
     <div class="container">
       <div class="section-header reveal">
         <h2>أبرز مشاريعنا</h2>
-        <p>نماذج مختارة من أعمال الطباعة والهويات البصرية واللوحات — ضع صور مشروعك داخل مجلد <code>images/</code></p>
+        <p>نماذج مختارة — ضع صور مشروعك داخل مجلد <code>images/</code></p>
       </div>
 
       <div class="filters reveal">
@@ -1162,22 +1146,22 @@
         <article class="project-card reveal" data-category="identity">
           <div class="project-media">
             <span class="tag">هوية بصرية</span>
-            <img src="images/project-1.jpg" alt="دليل هوية وقرطاسية شركة" onerror="handleImgError(this, 'مشروع 1 — دليل هوية وقرطاسية', 'images/project-1.jpg')" />
+            <img src="images/project-1.jpg" alt="دليل هوية وقرطاسية شركة" onerror="handleImgError(this, 'مشروع 1 — هوية وقرطاسية', 'images/project-1.jpg')" />
           </div>
           <div class="project-body">
             <h3>هوية متكاملة لشركة خدمات استشارية</h3>
-            <p>تصميم الشعار، الأوراق الرسمية، المظاريف، وبطاقات العمل بورق مقوى مع سلوفان مطفي.</p>
+            <p>شعار، أوراق رسمية، مظاريف، وبطاقات عمل بورق مقوى وسلوفان مطفي.</p>
           </div>
         </article>
 
         <article class="project-card reveal delay-1" data-category="print">
           <div class="project-media">
             <span class="tag">مطبوعات</span>
-            <img src="images/project-2.jpg" alt="كتالوج تعريفي 24 صفحة" onerror="handleImgError(this, 'مشروع 2 — كتالوج تعريفي', 'images/project-2.jpg')" />
+            <img src="images/project-2.jpg" alt="كتالوج تعريفي" onerror="handleImgError(this, 'مشروع 2 — كتالوج تعريفي', 'images/project-2.jpg')" />
           </div>
           <div class="project-body">
             <h3>كتالوج منتجات صناعية</h3>
-            <p>طباعة أوفست بألوان واضحة، ورق داخلي كوشيه، وغلاف مقوى بتشطيب لمّاع.</p>
+            <p>طباعة أوفست، ورق داخلي كوشيه، وغلاف مقوى بتشطيب لمّاع.</p>
           </div>
         </article>
 
@@ -1188,7 +1172,7 @@
           </div>
           <div class="project-body">
             <h3>واجهة محل تجاري ولوحة إرشادية</h3>
-            <p>تنفيذ لوحة واجهة بخامات متينة مع ستيكرات زجاجية خارجية واضحة الرؤية.</p>
+            <p>واجهة كلادينج متينة مع ستيكرات زجاجية خارجية واضحة.</p>
           </div>
         </article>
 
@@ -1198,19 +1182,19 @@
             <img src="images/project-4.jpg" alt="صناديق وملصقات منتجات" onerror="handleImgError(this, 'مشروع 4 — علب وملصقات', 'images/project-4.jpg')" />
           </div>
           <div class="project-body">
-            <h3>تغليف منتجات غذائية واستهلاكية</h3>
-            <p>علب كرتون مخصصة وملصقات لاصقة مقاومة للرطوبة مع قص دقيق.</p>
+            <h3>تغليف منتجات استهلاكية</h3>
+            <p>علب كرتون مخصصة وملصقات لاصقة بقص دقيق.</p>
           </div>
         </article>
 
         <article class="project-card reveal delay-1" data-category="print">
           <div class="project-media">
             <span class="tag">مطبوعات</span>
-            <img src="images/project-5.jpg" alt="منيوهات وبروشورات ترويجية" onerror="handleImgError(this, 'مشروع 5 — منيوهات وبروشورات', 'images/project-5.jpg')" />
+            <img src="images/project-5.jpg" alt="منيوهات وبروشورات" onerror="handleImgError(this, 'مشروع 5 — منيوهات وبروشورات', 'images/project-5.jpg')" />
           </div>
           <div class="project-body">
-            <h3>مطبوعات مطعم وحملة ترويجية</h3>
-            <p>قوائم طعام قابلة للمسح وفلايرات تعريفية بتوزيع ألوان متوازن.</p>
+            <h3>منيوهات وبروشورات ترويجية</h3>
+            <p>قوائم طعام وفلايرات تعريفية بتوزيع ألوان متوازن.</p>
           </div>
         </article>
 
@@ -1221,7 +1205,7 @@
           </div>
           <div class="project-body">
             <h3>تجهيز جناح معرض ومؤتمر</h3>
-            <p>رول أب، بطاقات تعريفية، وحقائب ورقية مطبوعة بالهوية الرسمية.</p>
+            <p>رول أب، بطاقات تعريفية، وحقائب ورقية مطبوعة بالهوية.</p>
           </div>
         </article>
       </div>
@@ -1232,7 +1216,7 @@
     <div class="container">
       <div class="section-header reveal">
         <h2>كرت التواصل</h2>
-        <p>احفظ بيانات مطبعة الإتقان للدعاية والإعلان مباشرة على هاتفك أو انسخها بنقرة واحدة</p>
+        <p>احفظ بيانات المطبعة في هاتفك أو انسخها بنقرة واحدة</p>
       </div>
 
       <div class="contact-card-wrapper">
@@ -1248,7 +1232,7 @@
                 <p style="font-size: 0.82rem; color: var(--muted);">طباعة • هوية بصرية • لوحات وتغليف</p>
               </div>
             </div>
-            <span class="bcard-badge">بطاقة تواصل رسمية</span>
+            <span class="bcard-badge">كرت تواصل</span>
           </div>
 
           <div class="bcard-details">
@@ -1277,13 +1261,16 @@
           <div class="card-copy-feedback" id="copyFeedback"></div>
         </div>
 
-        <div class="about-box reveal delay-1">
-          <h3>تواصل سريع ومباشر</h3>
+        <div class="info-box reveal delay-1">
+          <h3>تجهيز الملفات والصور</h3>
           <p>
-            يمكنك حفظ كرت التواصل في جهات اتصال هاتفك للرجوع إليه عند طلب أي مطبوعات أو لوحات إعلانية.
+            ضع شعار المطبعة داخل مجلد <code>images/</code> باسم <code>logo.png</code> ليظهر تلقائياً في الشريط العلوي وفي كرت التواصل.
+          </p>
+          <p>
+            ضع صور المشاريع داخل مجلد <code>images/</code> بالأسماء <code>project-1.jpg</code> حتى <code>project-6.jpg</code>.
           </p>
           <p style="margin-bottom: 0;">
-            لإضافة شعارك، ضع صورة الشعار داخل مجلد <code>images/</code> باسم <code>logo.png</code> وسيظهر تلقائياً في الشريط العلوي وفي كرت التواصل.
+            لتعديل العنوان، غيّر النص الموجود في خانة العنوان داخل كرت التواصل (<code>id="cardAddress"</code>).
           </p>
         </div>
       </div>
@@ -1298,32 +1285,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // الوضع الليلي / النهاري التلقائي واليدوي
-    const rootEl = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function applyTheme(theme) {
-      rootEl.setAttribute('data-theme', theme);
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-
-    applyTheme(rootEl.getAttribute('data-theme') || 'light');
-
-    mediaQuery.addEventListener('change', (e) => {
-      if (!localStorage.getItem('alitqan-theme')) {
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-
-    themeToggle.addEventListener('click', () => {
-      const current = rootEl.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('alitqan-theme', next);
-      applyTheme(next);
-    });
 
     // قائمة الهاتف
     const menuToggle = document.getElementById('menuToggle');
