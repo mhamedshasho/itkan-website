@@ -1489,10 +1489,6 @@
               <span>العنوان</span>
               <span id="cardAddress">حلب - الجميلية - شارع إسكندرون - عبارة عالم الأحبار</span>
             </div>
-            <div class="bcard-row">
-              <span>ساعات العمل</span>
-              <span id="cardHours">السبت – الخميس: 9:00 ص – 8:00 م</span>
-            </div>
           </div>
 
           <div class="bcard-actions">
@@ -1659,14 +1655,13 @@
         owner: document.getElementById('cardOwner').textContent.trim(),
         phone: document.getElementById('cardPhone').textContent.trim(),
         email: document.getElementById('cardEmail').textContent.trim(),
-        address: document.getElementById('cardAddress').textContent.trim(),
-        hours: document.getElementById('cardHours').textContent.trim()
+        address: document.getElementById('cardAddress').textContent.trim()
       };
     }
 
     copyBtn.addEventListener('click', async () => {
       const d = getContactData();
-      const text = `${d.org}\nالاسم: ${d.owner}\nالهاتف / واتساب: ${d.phone}\nالبريد: ${d.email}\nالعنوان: ${d.address}\nساعات العمل: ${d.hours}`;
+      const text = `${d.org}\nالاسم: ${d.owner}\nالهاتف / واتساب: ${d.phone}\nالبريد: ${d.email}\nالعنوان: ${d.address}`;
       try {
         await navigator.clipboard.writeText(text);
         copyFeedback.textContent = 'تم نسخ بيانات التواصل بنجاح.';
