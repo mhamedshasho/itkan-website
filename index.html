@@ -152,28 +152,33 @@
     }
 
     .brand-logo-slot {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
+      width: clamp(66px, 9vw, 112px);
+      height: 60px;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
       flex-shrink: 0;
-      transition: transform var(--transition), border-color var(--transition);
+      transition: transform var(--transition);
     }
 
     .brand:hover .brand-logo-slot {
-      transform: rotate(-3deg) scale(1.04);
-      border-color: var(--accent);
+      transform: translateY(-1px) scale(1.03);
     }
 
     .brand-logo-slot img {
+      display: block;
       width: 100%;
       height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
-      padding: 4px;
+      object-position: center;
+      padding: 0;
+      filter: drop-shadow(0 2px 3px rgba(24, 16, 40, 0.08));
     }
 
     .brand-fallback {
@@ -765,10 +770,10 @@
     }
 
     .bcard-logo-slot {
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-      background: var(--surface);
+      width: 76px;
+      height: 76px;
+      border-radius: 16px;
+      background: #fff;
       border: 1px solid var(--border);
       display: grid;
       place-items: center;
@@ -778,10 +783,12 @@
     }
 
     .bcard-logo-slot img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 5px;
+      object-position: center;
+      padding: 6px;
     }
 
     .bcard-badge {
@@ -1090,7 +1097,7 @@
       }
 
       .brand {
-        gap: 8px;
+        gap: 9px;
       }
 
       .brand-logo-slot {
@@ -1173,6 +1180,18 @@
     }
 
     /* استجابة الهواتف الضيقة جداً (360px وأقل) */
+    @media (max-width: 480px) {
+      .brand-logo-slot {
+        width: 76px;
+        height: 48px;
+      }
+
+      .bcard-logo-slot {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
     @media (max-width: 360px) {
       .brand-sub {
         display: none;
