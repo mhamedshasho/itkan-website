@@ -254,7 +254,7 @@
     <section id="contact" class="py-24 bg-[#f4f0fa]">
       <div class="max-w-7xl mx-auto px-5">
         <div class="text-center mb-16 reveal"><span class="gold-text font-bold">نحن هنا لخدمتك</span><h2 class="text-3xl md:text-5xl font-black mt-4">لنبدأ مشروعك معاً</h2><p class="text-gray-500 mt-5">أرسل لنا تفاصيل طلبك وسنتواصل معك.</p></div>
-        <div class="grid lg:grid-cols-1 gap-12">
+        <div class="grid grid-cols-1 gap-12">
           <div class="space-y-6 reveal">
             <div class="glass rounded-2xl p-7">
               <h3 class="text-2xl font-bold mb-7">تواصل معنا</h3>
@@ -264,8 +264,6 @@
             </div>
             <div class="rounded-2xl overflow-hidden h-56 bg-[#222]"><iframe title="موقع مطبعة الإتقان في حلب" src="https://maps.google.com/maps?q=Al%20Jamiliyah%2C%20Aleppo%2C%20Syria&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
           </div>
-          <div class="hidden"></div>
-
         </div>
       </div>
     </section>
@@ -345,47 +343,7 @@
 
     document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 
-    document.getElementById("quoteForm").addEventListener("submit", event => {
-      event.preventDefault();
 
-      if (!CONFIG.whatsappNumber || !/^\d{8,15}$/.test(CONFIG.whatsappNumber)) {
-        alert("يرجى إعداد رقم واتساب المطبعة داخل إعدادات الموقع أولاً.");
-        return;
-      }
-
-      const name = document.getElementById("customerName").value.trim();
-      const product = document.getElementById("productType").value;
-      const quantity = document.getElementById("quantity").value;
-      const phone = document.getElementById("customerPhone").value.trim();
-
-      const message = [
-        "مرحباً مطبعة الإتقان للدعاية والإعلان",
-        "",
-        "أرغب بطلب تسعيرة:",
-        "الاسم: " + name,
-        "المنتج: " + product,
-        "الكمية: " + quantity,
-        "رقم التواصل: " + phone
-      ].join("\n");
-
-      const url = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(message);
-      window.open(url, "_blank", "noopener,noreferrer");
-    });
-
-    document.querySelectorAll('a[href="https://wa.me/qr/XCZPTFU2GAVLI1"]').forEach(link => {
-      link.addEventListener("click", event => {
-        if (!CONFIG.whatsappNumber) {
-          event.preventDefault();
-          alert("يرجى إضافة رقم واتساب المطبعة في إعدادات الموقع.");
-          return;
-        }
-        link.href = "https://wa.me/" + CONFIG.whatsappNumber;
-      });
-    });
-
-    document.querySelectorAll('a[href="https://www.instagram.com/itkan_media?utm_source=qr&rpxt=MXZqb2RyeW1iZzF1Zw=="]').forEach(link => {
-      link.href = CONFIG.instagramUrl;
-    });
   </script>
 </body>
 </html>
