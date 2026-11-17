@@ -152,6 +152,9 @@
   #gallery>.gallery-item[data-category="video"]>.p-3{flex:0 0 auto;width:100%;box-sizing:border-box;padding:10px 12px}
   #gallery>.gallery-item[data-category="video"] .gallery-expand{top:10px;left:10px}
   @media(max-width:360px){#gallery{grid-template-columns:minmax(0,1fr)!important}#gallery>.gallery-item[data-category="video"]{height:280px!important}}
+  .video-play-overlay{position:absolute;inset:0 0 42px;display:flex;align-items:center;justify-content:center;background:linear-gradient(transparent,rgba(0,0,0,.25));pointer-events:none}
+  .video-play-overlay i{width:64px;height:64px;padding:19px;border-radius:50%;background:rgba(255,255,255,.94);color:#17121f;fill:#17121f;stroke:#17121f;box-shadow:0 8px 25px rgba(0,0,0,.22)}
+  #gallery a[data-category="video"]{text-decoration:none;color:inherit;cursor:pointer}
   .about-copy p{color:#40364d!important}
   .about-tag{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#f1ebfa;border:1px solid #e2d7f1;color:#52377a;font-size:13px;font-weight:700}
   .about-visual{position:relative;min-height:470px;padding:0 0 34px 34px}
@@ -286,8 +289,8 @@
           <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0016.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 7"></div>
           <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0017.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 8"></div>
           <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0018.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 9"></div>
-          <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0007.jpg"><source src="assests/VID-20261116-WA0004.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
-          <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0014.jpg"><source src="assests/VID-20261116-WA0011.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
+          <a href="video.html?v=VID-20261116-WA0004.mp4" class="gallery-item rounded-2xl overflow-hidden min-h-[220px] block" data-category="video"><img src="assests/IMG-20261116-WA0007.jpg" alt="معاينة الفيديو الأول" class="w-full h-full object-cover"><span class="video-play-overlay"><i data-lucide="play"></i></span><span class="block p-3 text-sm font-bold text-center">مشاهدة الفيديو</span></a>
+          <a href="video.html?v=VID-20261116-WA0011.mp4" class="gallery-item rounded-2xl overflow-hidden min-h-[220px] block" data-category="video"><img src="assests/IMG-20261116-WA0014.jpg" alt="معاينة الفيديو الثاني" class="w-full h-full object-cover"><span class="video-play-overlay"><i data-lucide="play"></i></span><span class="block p-3 text-sm font-bold text-center">مشاهدة الفيديو</span></a>
         </div>
         <p class="text-center text-gray-600 text-xs mt-8">نماذج من الصور والفيديوهات المرفوعة في معرض أعمال مطبعة الإتقان.</p>
       </div>
@@ -430,18 +433,6 @@
       lightboxWrap.replaceChildren(); document.body.style.overflow = "";
       if (lastFocusedElement?.focus) lastFocusedElement.focus();
     };
-    document.querySelectorAll("#gallery .gallery-item[data-category='photo']").forEach(item => {
-      item.tabIndex = 0; item.setAttribute("role","button"); item.setAttribute("aria-label","عرض الصورة بحجم كبير");
-      const open = () => openLightbox(getGalleryMedia().findIndex(media => media.item === item));
-      item.addEventListener("click",open);
-      item.addEventListener("keydown",event => {if(event.key==="Enter"||event.key===" "){event.preventDefault();open();}});
-    });
-    document.querySelectorAll("#gallery .gallery-item[data-category='video']").forEach(item => {
-      const expand = document.createElement("button"); expand.type = "button"; expand.className = "gallery-expand";
-      expand.setAttribute("aria-label","عرض الفيديو بحجم كبير"); expand.innerHTML = '<i data-lucide="maximize-2"></i>';
-      expand.addEventListener("click",() => openLightbox(getGalleryMedia().findIndex(media => media.item === item)));
-      item.appendChild(expand);
-    });
     lightboxClose.addEventListener("click",closeLightbox);
     lightboxPrev.addEventListener("click",() => showLightboxMedia(activeMediaIndex-1));
     lightboxNext.addEventListener("click",() => showLightboxMedia(activeMediaIndex+1));
