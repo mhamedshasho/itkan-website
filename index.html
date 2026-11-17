@@ -144,6 +144,22 @@
   @media(max-width:767px){.media-lightbox{padding:max(12px,env(safe-area-inset-top)) 10px max(12px,env(safe-area-inset-bottom))}.lightbox-panel{height:88dvh;gap:10px}.lightbox-media-wrap{height:calc(100% - 46px)}.lightbox-media{border-radius:8px}.lightbox-control{width:40px;height:40px}.lightbox-prev{right:2px}.lightbox-next{left:2px}.lightbox-caption{font-size:12px}}
   @media(prefers-reduced-motion:no-preference){.media-lightbox.is-open .lightbox-media{animation:lightboxIn .2s ease-out}@keyframes lightboxIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}}
 
+
+  .about-copy p{color:#40364d!important}
+  .about-tag{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#f1ebfa;border:1px solid #e2d7f1;color:#52377a;font-size:13px;font-weight:700}
+  .about-visual{position:relative;min-height:470px;padding:0 0 34px 34px}
+  .about-main-image{position:relative;height:440px;overflow:hidden;border-radius:26px;background:#e9e1f3;box-shadow:0 22px 55px rgba(42,24,69,.16)}
+  .about-main-image img{width:100%;height:100%;object-fit:cover}
+  .about-image-shade{position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(25,13,40,.78))}
+  .about-image-label{position:absolute;right:24px;bottom:24px;display:flex;flex-direction:column;gap:7px;color:#fff}
+  .about-image-label span{font-size:11px;letter-spacing:2px;color:#e2d2fa}
+  .about-image-label strong{font-size:23px}
+  .about-secondary-image{position:absolute;left:0;bottom:0;width:36%;height:175px;padding:7px;background:#fff;border-radius:20px;box-shadow:0 12px 35px rgba(42,24,69,.2)}
+  .about-secondary-image img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+  .about-location{position:absolute;top:18px;left:18px;display:flex;align-items:center;gap:8px;padding:11px 15px;border-radius:14px;background:rgba(255,255,255,.94);color:#493365;font-size:13px;font-weight:800;box-shadow:0 8px 24px rgba(30,15,50,.12)}
+  @media(max-width:767px){.about-visual{min-height:340px;padding:0 0 26px 24px}.about-main-image{height:330px;border-radius:20px}.about-secondary-image{width:39%;height:125px;padding:5px;border-radius:15px}.about-image-label{right:16px;bottom:18px}.about-image-label strong{font-size:18px}.about-location{top:12px;left:10px;padding:9px 11px;font-size:11px}.about-copy p{font-size:15px;line-height:2.05}}
+  @media(max-width:360px){.about-visual{min-height:300px}.about-main-image{height:290px}.about-location{font-size:10px}}
+
   </style>
 </head>
 <body class="font-cairo">
@@ -151,9 +167,9 @@
     <div class="max-w-7xl mx-auto px-5 h-20 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-xl overflow-hidden bg-white flex items-center justify-center ring-1 ring-[#7650b8]/15"><img src="LOGO.jpg" alt="شعار مطبعة الإتقان" class="w-full h-full object-contain" fetchpriority="high"></div>
-        <div><h1 class="font-extrabold text-lg gold-text leading-tight">الإتقان</h1><p class="text-[10px] text-gray-400">للدعاية والإعلان</p></div>
+        <div><h1 class="font-extrabold text-lg gold-text leading-tight">الإتقان</h1><p class="text-[10px] text-gray-700">للدعاية والإعلان</p></div>
       </a>
-      <nav class="hidden lg:flex items-center gap-8 text-sm text-gray-300">
+      <nav class="hidden lg:flex items-center gap-8 text-sm text-gray-600">
         <a href="#home" class="nav-link">الرئيسية</a><a href="#about" class="nav-link">من نحن</a><a href="#services" class="nav-link">خدماتنا</a><a href="#portfolio" class="nav-link">معرض أعمالنا</a><a href="#contact" class="nav-link">تواصل معنا</a>
       </nav>
       <div class="hidden md:flex items-center gap-3">
@@ -172,15 +188,15 @@
         <div class="reveal">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-[#d9bd80] mb-7"><span class="w-2 h-2 rounded-full bg-orange"></span>عالم من الإبداع يبدأ من التفاصيل</div>
           <h2 class="text-4xl md:text-6xl xl:text-7xl font-black leading-[1.4] mb-7">إتقان التفاصيل في عالم <span class="gold-text">التغليف والدعاية</span></h2>
-          <p class="text-gray-400 text-base md:text-lg leading-9 max-w-xl mb-9">نصنع أكثر من مجرد علب ومطبوعات؛ نصنع تجربة تعكس قيمة علامتك التجارية. حلول تغليف مخصصة، علب فاخرة، وأفكار دعائية تنبض بالتميز.</p>
+          <p class="text-gray-700 text-base md:text-lg leading-9 max-w-xl mb-9">نصنع أكثر من مجرد علب ومطبوعات؛ نصنع تجربة تعكس قيمة علامتك التجارية. حلول تغليف مخصصة، علب فاخرة، وأفكار دعائية تنبض بالتميز.</p>
           <div class="flex flex-wrap gap-4">
             <a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" class="gold-button px-7 py-4 rounded-xl font-bold flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5"></i>تواصل معنا عبر واتساب</a>
             <a href="#portfolio" class="outline-button px-7 py-4 rounded-xl font-bold">اكتشف أعمالنا</a>
           </div>
           <div class="mt-14 flex items-center gap-8 border-t border-white/10 pt-8">
-            <div><p class="gold-text text-2xl font-black">إبداع</p><p class="text-gray-500 text-xs mt-1">في كل تصميم</p></div><div class="w-px h-10 bg-white/10"></div>
-            <div><p class="gold-text text-2xl font-black">جودة</p><p class="text-gray-500 text-xs mt-1">في كل خامة</p></div><div class="w-px h-10 bg-white/10"></div>
-            <div><p class="gold-text text-2xl font-black">إتقان</p><p class="text-gray-500 text-xs mt-1">في كل تفصيل</p></div>
+            <div><p class="gold-text text-2xl font-black">إبداع</p><p class="text-gray-600 text-xs mt-1">في كل تصميم</p></div><div class="w-px h-10 bg-white/10"></div>
+            <div><p class="gold-text text-2xl font-black">جودة</p><p class="text-gray-600 text-xs mt-1">في كل خامة</p></div><div class="w-px h-10 bg-white/10"></div>
+            <div><p class="gold-text text-2xl font-black">إتقان</p><p class="text-gray-600 text-xs mt-1">في كل تفصيل</p></div>
           </div>
         </div>
         <div class="relative reveal">
@@ -190,38 +206,45 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
             <div class="absolute bottom-0 right-0 p-8"><span class="text-[#8b65c8] text-sm">AL ETQAN PRINTING</span><h3 class="text-3xl font-black mt-2">الفخامة تبدأ من التغليف</h3></div>
           </div>
-          <div class="absolute -bottom-6 -right-5 glass rounded-2xl p-5 hidden md:block"><i data-lucide="award" class="text-[#8b65c8] w-8 h-8 mb-2"></i><p class="font-bold">جودة تستحق الثقة</p><p class="text-gray-500 text-xs">اهتمام بكل تفصيل</p></div>
+          <div class="absolute -bottom-6 -right-5 glass rounded-2xl p-5 hidden md:block"><i data-lucide="award" class="text-[#8b65c8] w-8 h-8 mb-2"></i><p class="font-bold">جودة تستحق الثقة</p><p class="text-gray-600 text-xs">اهتمام بكل تفصيل</p></div>
         </div>
       </div>
     </section>
 
     <section id="about" class="py-24 bg-[#ffffff]">
-      <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <span class="gold-text font-bold tracking-widest">من نحن</span>
-          <h2 class="text-3xl md:text-5xl font-black mt-5 mb-7 leading-relaxed">نحن نؤمن أن <span class="gold-text">التفاصيل تصنع الفرق</span></h2>
-          <p class="text-gray-400 leading-9 text-base md:text-lg">في قلب مدينة حلب، وتحديداً في منطقة الجميلية، تقدم مطبعة الإتقان للدعاية والإعلان حلولاً متكاملة في عالم التغليف الفاخر والمطبوعات الإعلانية.</p>
-          <p class="text-gray-400 leading-9 mt-5">نعمل على تحويل أفكارك إلى منتجات ملموسة تجمع بين جودة الخامات ودقة التنفيذ وجمال التصميم، من العلب الكرتونية الفاخرة ومستلزمات الضيافة إلى الهدايا الدعائية والمطبوعات المبتكرة التي ترفع من قيمة علامتك التجارية.</p>
-          <a href="#contact" class="inline-flex items-center gap-3 mt-8 gold-text font-bold">لنتحدث عن مشروعك<i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+      <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal about-copy">
+          <span class="inline-flex items-center gap-2 rounded-full bg-[#7650b8]/10 px-4 py-2 text-[#6940a8] font-bold text-sm">من نحن · مطبعة الإتقان</span>
+          <h2 class="text-3xl md:text-5xl font-black mt-6 mb-7 leading-relaxed text-[#241b32]">نحوّل أفكارك إلى <span class="gold-text">منتجات ملموسة</span></h2>
+          <p class="leading-9 text-base md:text-lg text-[#40364d]">من قلب الجميلية في حلب، تعمل مطبعة الإتقان للدعاية والإعلان على تنفيذ حلول التغليف والمطبوعات التي تمنح منتجاتك حضوراً يليق بها.</p>
+          <p class="leading-9 mt-5 text-[#40364d]">نهتم بجودة الخامات ودقة التنفيذ والتشطيب، ونقدّم علباً كرتونية فاخرة، وتغليفاً مخصصاً، ومستلزمات ضيافة وهدايا دعائية تساعد علامتك التجارية على الظهور بصورة مميزة.</p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <span class="about-tag">تغليف مخصص</span><span class="about-tag">مطبوعات دعائية</span><span class="about-tag">تشطيب دقيق</span>
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-3 mt-8 text-[#6940a8] font-extrabold">لنتحدث عن مشروعك<i data-lucide="arrow-left" class="w-5 h-5"></i></a>
         </div>
-        <div class="grid grid-cols-2 gap-4 reveal">
-          <div class="rounded-2xl overflow-hidden h-64"><img src="assests/IMG-20261116-WA0001.jpg" loading="lazy" class="w-full h-full object-cover" alt="تغليف الهدايا"></div>
-          <div class="rounded-2xl overflow-hidden h-64 mt-10"><img src="assests/IMG-20261116-WA0006.jpg" loading="lazy" class="w-full h-full object-cover" alt="علب الهدايا"></div>
-          <div class="col-span-2 glass rounded-2xl p-6"><h3 class="gold-text text-xl font-black">مطبعة الإتقان</h3><p class="text-gray-400 text-sm mt-2">حلب - الجميلية - شارع إسكندرون</p></div>
+        <div class="about-visual reveal">
+          <div class="about-main-image">
+            <img src="assests/IMG-20261116-WA0006.jpg" loading="lazy" alt="نماذج من أعمال التغليف والعلب في مطبعة الإتقان">
+            <div class="about-image-shade"></div>
+            <div class="about-image-label"><span>AL ETQAN PRINTING</span><strong>الجودة تبدأ من التفاصيل</strong></div>
+          </div>
+          <div class="about-secondary-image"><img src="assests/IMG-20261116-WA0001.jpg" loading="lazy" alt="تفاصيل من أعمال مطبعة الإتقان"></div>
+          <div class="about-location"><i data-lucide="map-pin" class="w-5 h-5"></i><span>حلب · الجميلية · شارع إسكندرون</span></div>
         </div>
       </div>
     </section>
 
     <section id="services" class="py-24 bg-[#fbfaff]">
       <div class="max-w-7xl mx-auto px-5">
-        <div class="text-center mb-16 reveal"><span class="gold-text font-bold">ماذا نقدم؟</span><h2 class="text-3xl md:text-5xl font-black mt-4">خدماتنا</h2><p class="text-gray-500 mt-5 max-w-xl mx-auto leading-8">حلول متنوعة تجمع بين الإبداع والجودة لتلبية احتياجات مشروعك.</p></div>
+        <div class="text-center mb-16 reveal"><span class="gold-text font-bold">ماذا نقدم؟</span><h2 class="text-3xl md:text-5xl font-black mt-4">خدماتنا</h2><p class="text-gray-600 mt-5 max-w-xl mx-auto leading-8">حلول متنوعة تجمع بين الإبداع والجودة لتلبية احتياجات مشروعك.</p></div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="package" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">علب الهدايا والعطور الفاخرة</h3><p class="text-gray-400 leading-8 text-sm">علب مقواة فاخرة بغطاء مغناطيسي، طباعة ذهبية وبارزة، وبطانات داخلية مخصصة للعطور والهدايا الراقية.</p></article>
-          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="utensils" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">تغليف المطاعم والحلويات</h3><p class="text-gray-400 leading-8 text-sm">علب الوجبات السريعة والكيك والحلويات بنوافذ شفافة، وأكياس ورقية مقواة تحمل هوية مشروعك.</p></article>
-          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="coffee" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الأكواب الورقية وحواملها</h3><p class="text-gray-400 leading-8 text-sm">أكواب ورقية للمشروبات الساخنة والباردة بأحجام متنوعة، مع حوامل أكواب كرتونية مطبوعة.</p></article>
-          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="gift" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الهدايا الدعائية والإعلانية</h3><p class="text-gray-400 leading-8 text-sm">الطباعة على الأقلام والقداحات والمنتجات الترويجية لتعزيز حضور علامتك التجارية.</p></article>
-          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="megaphone" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الدعاية والإعلان</h3><p class="text-gray-400 leading-8 text-sm">تنفيذ المطبوعات الإعلانية والترويجية التي تدعم هوية الشركات والمتاجر وتبرز حضورها.</p></article>
-          <article class="service-card rounded-2xl p-7 border border-[#7650b8]/30 bg-gradient-to-br from-[#7650b8]/10 to-transparent reveal flex flex-col justify-center"><i data-lucide="sparkles" class="w-10 h-10 text-[#8b65c8] mb-5"></i><h3 class="text-2xl font-black gold-text mb-3">لديك فكرة مختلفة؟</h3><p class="text-gray-400 leading-8 text-sm mb-6">أخبرنا بما تحتاجه وسنعمل معك على إيجاد الحل المناسب.</p><a href="#contact" class="font-bold text-[#8b65c8] flex items-center gap-2">تواصل معنا<i data-lucide="arrow-left" class="w-4 h-4"></i></a></article>
+          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="package" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">علب الهدايا والعطور الفاخرة</h3><p class="text-gray-700 leading-8 text-sm">علب مقواة فاخرة بغطاء مغناطيسي، طباعة ذهبية وبارزة، وبطانات داخلية مخصصة للعطور والهدايا الراقية.</p></article>
+          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="utensils" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">تغليف المطاعم والحلويات</h3><p class="text-gray-700 leading-8 text-sm">علب الوجبات السريعة والكيك والحلويات بنوافذ شفافة، وأكياس ورقية مقواة تحمل هوية مشروعك.</p></article>
+          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="coffee" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الأكواب الورقية وحواملها</h3><p class="text-gray-700 leading-8 text-sm">أكواب ورقية للمشروبات الساخنة والباردة بأحجام متنوعة، مع حوامل أكواب كرتونية مطبوعة.</p></article>
+          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="gift" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الهدايا الدعائية والإعلانية</h3><p class="text-gray-700 leading-8 text-sm">الطباعة على الأقلام والقداحات والمنتجات الترويجية لتعزيز حضور علامتك التجارية.</p></article>
+          <article class="service-card glass rounded-2xl p-7 reveal"><div class="w-14 h-14 rounded-xl bg-[#7650b8]/10 flex items-center justify-center mb-6"><i data-lucide="megaphone" class="w-7 h-7 text-[#8b65c8]"></i></div><h3 class="text-xl font-bold mb-4">الدعاية والإعلان</h3><p class="text-gray-700 leading-8 text-sm">تنفيذ المطبوعات الإعلانية والترويجية التي تدعم هوية الشركات والمتاجر وتبرز حضورها.</p></article>
+          <article class="service-card rounded-2xl p-7 border border-[#7650b8]/30 bg-gradient-to-br from-[#7650b8]/10 to-transparent reveal flex flex-col justify-center"><i data-lucide="sparkles" class="w-10 h-10 text-[#8b65c8] mb-5"></i><h3 class="text-2xl font-black gold-text mb-3">لديك فكرة مختلفة؟</h3><p class="text-gray-700 leading-8 text-sm mb-6">أخبرنا بما تحتاجه وسنعمل معك على إيجاد الحل المناسب.</p><a href="#contact" class="font-bold text-[#8b65c8] flex items-center gap-2">تواصل معنا<i data-lucide="arrow-left" class="w-4 h-4"></i></a></article>
         </div>
       </div>
     </section>
@@ -230,17 +253,17 @@
       <div class="max-w-7xl mx-auto px-5">
         <div class="text-center mb-16 reveal"><span class="gold-text font-bold">لماذا الإتقان؟</span><h2 class="text-3xl md:text-5xl font-black mt-4">لأن التفاصيل تهمنا</h2></div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="scissors" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">دقة التنفيذ</h3><p class="text-gray-500 text-sm leading-7">عناية متناهية في القص والتجميع والتشطيب.</p></div>
-          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="gem" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">خامات فاخرة</h3><p class="text-gray-500 text-sm leading-7">اختيار خامات تليق بقيمة منتجاتك.</p></div>
-          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="palette" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">تصاميم مخصصة</h3><p class="text-gray-500 text-sm leading-7">حلول تناسب هوية كل عميل واحتياجاته.</p></div>
-          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="clock" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">الالتزام بالمواعيد</h3><p class="text-gray-500 text-sm leading-7">اهتمام بالتنظيم ومواعيد التسليم المتفق عليها.</p></div>
+          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="scissors" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">دقة التنفيذ</h3><p class="text-gray-600 text-sm leading-7">عناية متناهية في القص والتجميع والتشطيب.</p></div>
+          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="gem" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">خامات فاخرة</h3><p class="text-gray-600 text-sm leading-7">اختيار خامات تليق بقيمة منتجاتك.</p></div>
+          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="palette" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">تصاميم مخصصة</h3><p class="text-gray-600 text-sm leading-7">حلول تناسب هوية كل عميل واحتياجاته.</p></div>
+          <div class="text-center glass rounded-2xl p-7 reveal"><i data-lucide="clock" class="w-10 h-10 mx-auto text-[#8b65c8] mb-5"></i><h3 class="font-bold text-lg mb-3">الالتزام بالمواعيد</h3><p class="text-gray-600 text-sm leading-7">اهتمام بالتنظيم ومواعيد التسليم المتفق عليها.</p></div>
         </div>
       </div>
     </section>
 
     <section id="portfolio" class="py-24 bg-[#fbfaff]">
       <div class="max-w-7xl mx-auto px-5">
-        <div class="text-center mb-12 reveal"><span class="gold-text font-bold">إبداعاتنا</span><h2 class="text-3xl md:text-5xl font-black mt-4">معرض أعمالنا</h2><p class="text-gray-500 mt-5">مساحة تعرض نماذج من أعمال مطبعة الإتقان.</p></div>
+        <div class="text-center mb-12 reveal"><span class="gold-text font-bold">إبداعاتنا</span><h2 class="text-3xl md:text-5xl font-black mt-4">معرض أعمالنا</h2><p class="text-gray-600 mt-5">مساحة تعرض نماذج من أعمال مطبعة الإتقان.</p></div>
 <div class="flex flex-wrap justify-center gap-3 mb-10" id="filters">
           <button class="filter-btn gold-button px-5 py-2 rounded-full text-sm" data-filter="all">الكل</button>
           <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="photo">الصور</button>
@@ -259,23 +282,23 @@
           <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0007.jpg"><source src="assests/VID-20261116-WA0004.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
           <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0014.jpg"><source src="assests/VID-20261116-WA0011.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
         </div>
-        <p class="text-center text-gray-500 text-xs mt-8">نماذج من الصور والفيديوهات المرفوعة في معرض أعمال مطبعة الإتقان.</p>
+        <p class="text-center text-gray-600 text-xs mt-8">نماذج من الصور والفيديوهات المرفوعة في معرض أعمال مطبعة الإتقان.</p>
       </div>
     </section>
 
     <section id="contact" class="py-24 bg-[#f4f0fa]">
       <div class="max-w-7xl mx-auto px-5">
-        <div class="text-center mb-16 reveal"><span class="gold-text font-bold">نحن هنا لخدمتك</span><h2 class="text-3xl md:text-5xl font-black mt-4">لنبدأ مشروعك معاً</h2><p class="text-gray-500 mt-5">أرسل لنا تفاصيل طلبك وسنتواصل معك.</p></div>
+        <div class="text-center mb-16 reveal"><span class="gold-text font-bold">نحن هنا لخدمتك</span><h2 class="text-3xl md:text-5xl font-black mt-4">لنبدأ مشروعك معاً</h2><p class="text-gray-600 mt-5">أرسل لنا تفاصيل طلبك وسنتواصل معك.</p></div>
         <div class="grid grid-cols-1 gap-12">
           <div class="space-y-6 reveal">
             <div class="glass rounded-2xl p-7">
               <h3 class="text-2xl font-bold mb-7">تواصل معنا</h3>
-              <a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" class="flex items-center gap-5 p-5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 mb-5"><div class="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center"><i data-lucide="message-circle" class="text-white w-6 h-6"></i></div><div><p class="font-bold">واتساب</p><p class="text-gray-500 text-sm">تواصل معنا مباشرة</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-500"></i></a>
-              <a href="https://www.instagram.com/itkan_media?utm_source=qr&rpxt=MXZqb2RyeW1iZzF1Zw==" target="_blank" rel="noopener" class="flex items-center gap-5 p-5 rounded-xl bg-[#C13584]/10 border border-[#C13584]/20 mb-5"><div class="w-12 h-12 bg-gradient-to-br from-[#833AB4] to-[#E1306C] rounded-xl flex items-center justify-center"><i data-lucide="instagram" class="text-white w-6 h-6"></i></div><div><p class="font-bold">Instagram</p><p class="text-gray-500 text-sm">شاهد أحدث أعمالنا</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-500"></i></a>
-              <a href="tel:+963951437410" class="flex items-center gap-5 p-5 rounded-xl bg-[#7650b8]/5 border border-[#7650b8]/15 mb-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="phone" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">رقم الهاتف</p><p class="text-gray-500 text-sm" dir="ltr">+963 951 437 410</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-500"></i></a>
-              <a href="mailto:ikanmedia@gmail.com" class="flex items-center gap-5 p-5 rounded-xl bg-[#7650b8]/5 border border-[#7650b8]/15 mb-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="mail" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">البريد الإلكتروني</p><p class="text-gray-500 text-sm">ikanmedia@gmail.com</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-500"></i></a>
-              <div class="flex items-start gap-5 p-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold mb-2">موقعنا</p><p class="text-gray-400 text-sm leading-8">سوريا - حلب - الجميلية<br>شارع إسكندرون - عبارة عالم الأحبار</p></div></div>
-              <div class="flex items-center gap-5 px-5 pb-2"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="user-round" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">مسؤول التواصل</p><p class="text-gray-500 text-sm">إسماعيل حريري</p></div></div>
+              <a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" class="flex items-center gap-5 p-5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 mb-5"><div class="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center"><i data-lucide="message-circle" class="text-white w-6 h-6"></i></div><div><p class="font-bold">واتساب</p><p class="text-gray-600 text-sm">تواصل معنا مباشرة</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-600"></i></a>
+              <a href="https://www.instagram.com/itkan_media?utm_source=qr&rpxt=MXZqb2RyeW1iZzF1Zw==" target="_blank" rel="noopener" class="flex items-center gap-5 p-5 rounded-xl bg-[#C13584]/10 border border-[#C13584]/20 mb-5"><div class="w-12 h-12 bg-gradient-to-br from-[#833AB4] to-[#E1306C] rounded-xl flex items-center justify-center"><i data-lucide="instagram" class="text-white w-6 h-6"></i></div><div><p class="font-bold">Instagram</p><p class="text-gray-600 text-sm">شاهد أحدث أعمالنا</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-600"></i></a>
+              <a href="tel:+963951437410" class="flex items-center gap-5 p-5 rounded-xl bg-[#7650b8]/5 border border-[#7650b8]/15 mb-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="phone" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">رقم الهاتف</p><p class="text-gray-600 text-sm" dir="ltr">+963 951 437 410</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-600"></i></a>
+              <a href="mailto:ikanmedia@gmail.com" class="flex items-center gap-5 p-5 rounded-xl bg-[#7650b8]/5 border border-[#7650b8]/15 mb-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="mail" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">البريد الإلكتروني</p><p class="text-gray-600 text-sm">ikanmedia@gmail.com</p></div><i data-lucide="arrow-up-left" class="mr-auto text-gray-600"></i></a>
+              <div class="flex items-start gap-5 p-5"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold mb-2">موقعنا</p><p class="text-gray-700 text-sm leading-8">سوريا - حلب - الجميلية<br>شارع إسكندرون - عبارة عالم الأحبار</p></div></div>
+              <div class="flex items-center gap-5 px-5 pb-2"><div class="w-12 h-12 rounded-xl bg-[#7650b8]/10 flex items-center justify-center"><i data-lucide="user-round" class="text-[#8b65c8] w-6 h-6"></i></div><div><p class="font-bold">مسؤول التواصل</p><p class="text-gray-600 text-sm">إسماعيل حريري</p></div></div>
             </div>
           </div>
         </div>
@@ -286,9 +309,9 @@
   <footer class="bg-[#eee9f6] border-t border-white/10 pt-14 pb-8">
     <div class="max-w-7xl mx-auto px-5">
       <div class="grid md:grid-cols-3 gap-10 pb-12">
-        <div><img src="LOGO.jpg" alt="شعار مطبعة الإتقان" loading="lazy" class="w-28 h-20 object-contain rounded-xl bg-white p-2"><p class="text-gray-500 mt-3 text-sm">مطبعة الإتقان للدعاية والإعلان</p><p class="text-gray-600 text-sm leading-8 mt-4">نمنح أفكارك قيمة ملموسة من خلال حلول التغليف والدعاية والإعلان.</p></div>
-        <div><h3 class="font-bold mb-5">روابط سريعة</h3><div class="space-y-3 text-gray-500 text-sm"><a href="#home" class="block nav-link">الرئيسية</a><a href="#services" class="block nav-link">خدماتنا</a><a href="#portfolio" class="block nav-link">معرض أعمالنا</a><a href="#contact" class="block nav-link">تواصل معنا</a></div></div>
-        <div><h3 class="font-bold mb-5">معلومات التواصل</h3><p class="text-gray-500 text-sm leading-8">إسماعيل حريري<br><a href="tel:+963951437410" dir="ltr" class="hover:text-[#7650b8]">+963 951 437 410</a><br><a href="mailto:ikanmedia@gmail.com" class="hover:text-[#7650b8]">ikanmedia@gmail.com</a><br>سوريا - حلب - الجميلية<br>شارع إسكندرون - عبارة عالم الأحبار</p><div class="flex gap-3 mt-5"><a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" aria-label="واتساب" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="message-circle" class="w-5 h-5"></i></a><a href="https://www.instagram.com/itkan_media?utm_source=qr&rpxt=MXZqb2RyeW1iZzF1Zw==" target="_blank" rel="noopener" aria-label="إنستغرام" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="instagram" class="w-5 h-5"></i></a></div></div>
+        <div><img src="LOGO.jpg" alt="شعار مطبعة الإتقان" loading="lazy" class="w-28 h-20 object-contain rounded-xl bg-white p-2"><p class="text-gray-600 mt-3 text-sm">مطبعة الإتقان للدعاية والإعلان</p><p class="text-gray-600 text-sm leading-8 mt-4">نمنح أفكارك قيمة ملموسة من خلال حلول التغليف والدعاية والإعلان.</p></div>
+        <div><h3 class="font-bold mb-5">روابط سريعة</h3><div class="space-y-3 text-gray-600 text-sm"><a href="#home" class="block nav-link">الرئيسية</a><a href="#services" class="block nav-link">خدماتنا</a><a href="#portfolio" class="block nav-link">معرض أعمالنا</a><a href="#contact" class="block nav-link">تواصل معنا</a></div></div>
+        <div><h3 class="font-bold mb-5">معلومات التواصل</h3><p class="text-gray-600 text-sm leading-8">إسماعيل حريري<br><a href="tel:+963951437410" dir="ltr" class="hover:text-[#7650b8]">+963 951 437 410</a><br><a href="mailto:ikanmedia@gmail.com" class="hover:text-[#7650b8]">ikanmedia@gmail.com</a><br>سوريا - حلب - الجميلية<br>شارع إسكندرون - عبارة عالم الأحبار</p><div class="flex gap-3 mt-5"><a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" aria-label="واتساب" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="message-circle" class="w-5 h-5"></i></a><a href="https://www.instagram.com/itkan_media?utm_source=qr&rpxt=MXZqb2RyeW1iZzF1Zw==" target="_blank" rel="noopener" aria-label="إنستغرام" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="instagram" class="w-5 h-5"></i></a></div></div>
       </div>
       <div class="border-t border-white/10 pt-7 text-center text-gray-600 text-xs">جميع الحقوق محفوظة © <span id="year"></span> مطبعة الإتقان للدعاية والإعلان</div>
     </div>
