@@ -131,6 +131,19 @@
     #home .mt-14 .gold-text { font-size:16px !important; }
   }
 
+
+  .media-lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom));background:rgba(13,8,22,.96);backdrop-filter:blur(12px)}
+  .media-lightbox.is-open{display:flex}.lightbox-panel{position:relative;width:min(1100px,100%);height:min(88dvh,900px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+  .lightbox-media-wrap{width:100%;height:calc(100% - 52px);min-height:0;display:flex;align-items:center;justify-content:center}
+  .lightbox-media{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 18px 70px rgba(0,0,0,.4)}
+  .lightbox-media video{width:100%;height:100%;object-fit:contain;background:#08060b}.lightbox-caption{color:#fff;font-size:14px;text-align:center;line-height:1.7}
+  .lightbox-control{position:absolute;z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(8px)}
+  .lightbox-close{top:0;left:0}.lightbox-prev{right:0;top:50%;transform:translateY(-50%)}.lightbox-next{left:0;top:50%;transform:translateY(-50%)}
+  .gallery-item[data-category="photo"]{cursor:zoom-in}.gallery-expand{position:absolute;top:10px;left:10px;z-index:3;width:38px;height:38px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(28,18,42,.72);color:#fff;display:flex;align-items:center;justify-content:center}
+  .gallery-item[data-category="video"]{position:relative}
+  @media(max-width:767px){.media-lightbox{padding:max(12px,env(safe-area-inset-top)) 10px max(12px,env(safe-area-inset-bottom))}.lightbox-panel{height:88dvh;gap:10px}.lightbox-media-wrap{height:calc(100% - 46px)}.lightbox-media{border-radius:8px}.lightbox-control{width:40px;height:40px}.lightbox-prev{right:2px}.lightbox-next{left:2px}.lightbox-caption{font-size:12px}}
+  @media(prefers-reduced-motion:no-preference){.media-lightbox.is-open .lightbox-media{animation:lightboxIn .2s ease-out}@keyframes lightboxIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}}
+
   </style>
 </head>
 <body class="font-cairo">
@@ -283,6 +296,16 @@
 
   <a href="https://wa.me/qr/XCZPTFU2GAVLI1" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب" class="floating-whatsapp fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform"><i data-lucide="message-circle" class="w-7 h-7"></i></a>
 
+
+  <div id="mediaLightbox" class="media-lightbox" aria-hidden="true">
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="عرض الوسائط بحجم كبير">
+      <button type="button" class="lightbox-control lightbox-close" id="lightboxClose" aria-label="إغلاق العرض"><i data-lucide="x"></i></button>
+      <button type="button" class="lightbox-control lightbox-prev" id="lightboxPrev" aria-label="العنصر السابق"><i data-lucide="chevron-right"></i></button>
+      <button type="button" class="lightbox-control lightbox-next" id="lightboxNext" aria-label="العنصر التالي"><i data-lucide="chevron-left"></i></button>
+      <div id="lightboxMediaWrap" class="lightbox-media-wrap"></div><p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
   <script>
     const CONFIG = {
       whatsappUrl: "https://wa.me/qr/XCZPTFU2GAVLI1",
@@ -332,6 +355,74 @@
         });
       });
     });
+
+
+    const lightbox = document.getElementById("mediaLightbox");
+    const lightboxWrap = document.getElementById("lightboxMediaWrap");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    let activeMediaIndex = 0;
+    let lastFocusedElement = null;
+    const getGalleryMedia = () => Array.from(document.querySelectorAll("#gallery .gallery-item"))
+      .filter(item => !item.classList.contains("hidden"))
+      .map(item => ({item,type:item.dataset.category,source:item.dataset.category==="photo"?item.querySelector("img")?.getAttribute("src"):item.querySelector("video source")?.getAttribute("src"),poster:item.querySelector("video")?.getAttribute("poster")||"",caption:item.querySelector("img")?.alt||item.querySelector("div.p-3")?.textContent?.trim()||"من أعمال مطبعة الإتقان"}))
+      .filter(media => media.source);
+    const showLightboxMedia = index => {
+      const mediaList = getGalleryMedia();
+      if (!mediaList.length) return;
+      activeMediaIndex = (index + mediaList.length) % mediaList.length;
+      const media = mediaList[activeMediaIndex];
+      lightboxWrap.replaceChildren();
+      let element;
+      if (media.type === "video") {
+        element = document.createElement("video");
+        element.controls = true; element.playsInline = true; element.autoplay = true; element.preload = "metadata";
+        if (media.poster) element.poster = media.poster;
+        const source = document.createElement("source"); source.src = media.source; source.type = "video/mp4"; element.appendChild(source);
+      } else {
+        element = document.createElement("img"); element.src = media.source; element.alt = media.caption; element.decoding = "async";
+      }
+      element.className = "lightbox-media"; lightboxWrap.appendChild(element);
+      lightboxCaption.textContent = media.caption;
+      lightboxPrev.hidden = mediaList.length < 2; lightboxNext.hidden = mediaList.length < 2;
+    };
+    const openLightbox = index => {
+      lastFocusedElement = document.activeElement;
+      lightbox.classList.add("is-open"); lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden"; showLightboxMedia(index); lightboxClose.focus();
+    };
+    const closeLightbox = () => {
+      if (!lightbox.classList.contains("is-open")) return;
+      const playingVideo = lightboxWrap.querySelector("video"); if (playingVideo) playingVideo.pause();
+      lightbox.classList.remove("is-open"); lightbox.setAttribute("aria-hidden","true");
+      lightboxWrap.replaceChildren(); document.body.style.overflow = "";
+      if (lastFocusedElement?.focus) lastFocusedElement.focus();
+    };
+    document.querySelectorAll("#gallery .gallery-item[data-category='photo']").forEach(item => {
+      item.tabIndex = 0; item.setAttribute("role","button"); item.setAttribute("aria-label","عرض الصورة بحجم كبير");
+      const open = () => openLightbox(getGalleryMedia().findIndex(media => media.item === item));
+      item.addEventListener("click",open);
+      item.addEventListener("keydown",event => {if(event.key==="Enter"||event.key===" "){event.preventDefault();open();}});
+    });
+    document.querySelectorAll("#gallery .gallery-item[data-category='video']").forEach(item => {
+      const expand = document.createElement("button"); expand.type = "button"; expand.className = "gallery-expand";
+      expand.setAttribute("aria-label","عرض الفيديو بحجم كبير"); expand.innerHTML = '<i data-lucide="maximize-2"></i>';
+      expand.addEventListener("click",() => openLightbox(getGalleryMedia().findIndex(media => media.item === item)));
+      item.appendChild(expand);
+    });
+    lightboxClose.addEventListener("click",closeLightbox);
+    lightboxPrev.addEventListener("click",() => showLightboxMedia(activeMediaIndex-1));
+    lightboxNext.addEventListener("click",() => showLightboxMedia(activeMediaIndex+1));
+    lightbox.addEventListener("click",event => {if(event.target===lightbox)closeLightbox();});
+    document.addEventListener("keydown",event => {
+      if(!lightbox.classList.contains("is-open"))return;
+      if(event.key==="Escape")closeLightbox();
+      if(event.key==="ArrowRight")showLightboxMedia(activeMediaIndex-1);
+      if(event.key==="ArrowLeft")showLightboxMedia(activeMediaIndex+1);
+    });
+    lucide.createIcons();
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
