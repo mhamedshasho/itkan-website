@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#7650b8">
+  <link rel="icon" type="image/jpeg" href="LOGO.jpg">
   <meta name="description" content="مطبعة الإتقان للدعاية والإعلان في حلب. حلول التغليف الفاخر والعلب المخصصة والأكواب والهدايا الدعائية.">
   <title>مطبعة الإتقان | إتقان التفاصيل</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -137,7 +138,7 @@
   <header class="fixed top-0 left-0 w-full z-50 bg-[#fbfaff]/90 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-5 h-20 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#b99be6] to-[#4c287f] flex items-center justify-center text-black"><i data-lucide="printer" class="w-6 h-6"></i></div>
+        <div class="w-12 h-12 rounded-xl overflow-hidden bg-white flex items-center justify-center ring-1 ring-[#7650b8]/15"><img src="LOGO.jpg" alt="شعار مطبعة الإتقان" class="w-full h-full object-contain" fetchpriority="high"></div>
         <div><h1 class="font-extrabold text-lg gold-text leading-tight">الإتقان</h1><p class="text-[10px] text-gray-400">للدعاية والإعلان</p></div>
       </a>
       <nav class="hidden lg:flex items-center gap-8 text-sm text-gray-300">
@@ -174,7 +175,7 @@
         <div class="relative reveal">
           <div class="absolute inset-0 bg-[#7650b8]/10 blur-[100px] rounded-full"></div>
           <div class="relative rounded-3xl overflow-hidden border border-[#7650b8]/30 shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=85" alt="نماذج تغليف ومنتجات" class="w-full h-[400px] md:h-[550px] object-cover opacity-85">
+            <img src="card.jpg" alt="نماذج تغليف ومنتجات" class="w-full h-[400px] md:h-[550px] object-cover opacity-85">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
             <div class="absolute bottom-0 right-0 p-8"><span class="text-[#8b65c8] text-sm">AL ETQAN PRINTING</span><h3 class="text-3xl font-black mt-2">الفخامة تبدأ من التغليف</h3></div>
           </div>
@@ -193,8 +194,8 @@
           <a href="#contact" class="inline-flex items-center gap-3 mt-8 gold-text font-bold">لنتحدث عن مشروعك<i data-lucide="arrow-left" class="w-5 h-5"></i></a>
         </div>
         <div class="grid grid-cols-2 gap-4 reveal">
-          <div class="rounded-2xl overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="تغليف الهدايا"></div>
-          <div class="rounded-2xl overflow-hidden h-64 mt-10"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="علب الهدايا"></div>
+          <div class="rounded-2xl overflow-hidden h-64"><img src="assests/IMG-20261116-WA0001.jpg" loading="lazy" class="w-full h-full object-cover" alt="تغليف الهدايا"></div>
+          <div class="rounded-2xl overflow-hidden h-64 mt-10"><img src="assests/IMG-20261116-WA0006.jpg" loading="lazy" class="w-full h-full object-cover" alt="علب الهدايا"></div>
           <div class="col-span-2 glass rounded-2xl p-6"><h3 class="gold-text text-xl font-black">مطبعة الإتقان</h3><p class="text-gray-400 text-sm mt-2">حلب - الجميلية - شارع إسكندرون</p></div>
         </div>
       </div>
@@ -229,24 +230,25 @@
     <section id="portfolio" class="py-24 bg-[#fbfaff]">
       <div class="max-w-7xl mx-auto px-5">
         <div class="text-center mb-12 reveal"><span class="gold-text font-bold">إبداعاتنا</span><h2 class="text-3xl md:text-5xl font-black mt-4">معرض أعمالنا</h2><p class="text-gray-500 mt-5">مساحة تعرض نماذج من أعمال مطبعة الإتقان.</p></div>
-        <div class="flex flex-wrap justify-center gap-3 mb-10" id="filters">
+<div class="flex flex-wrap justify-center gap-3 mb-10" id="filters">
           <button class="filter-btn gold-button px-5 py-2 rounded-full text-sm" data-filter="all">الكل</button>
-          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="boxes">علب فاخرة وعطور</button>
-          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="food">مطاعم وحلويات</button>
-          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="cups">أكواب ورقية</button>
-          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="gifts">هدايا دعائية</button>
+          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="photo">الصور</button>
+          <button class="filter-btn outline-button px-5 py-2 rounded-full text-sm" data-filter="video">الفيديوهات</button>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
-          <div class="gallery-item rounded-2xl h-64" data-category="boxes"><img src="https://placehold.co/600x800/24201a/c9a45c?text=Luxury+Boxes" class="w-full h-full object-cover" alt="علب فاخرة"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">علب فاخرة وعطور</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="food"><img src="https://placehold.co/600x800/25221e/c9a45c?text=Food+Packaging" class="w-full h-full object-cover" alt="تغليف مطاعم"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">تغليف المطاعم</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="cups"><img src="https://placehold.co/600x800/24201a/c9a45c?text=Paper+Cups" class="w-full h-full object-cover" alt="أكواب ورقية"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">أكواب ورقية</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="gifts"><img src="https://placehold.co/600x800/25221e/c9a45c?text=Promotional+Gifts" class="w-full h-full object-cover" alt="هدايا دعائية"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">هدايا دعائية</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="boxes"><img src="https://placehold.co/600x800/24201a/c9a45c?text=Gift+Packaging" class="w-full h-full object-cover" alt="تغليف هدايا"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">تغليف هدايا</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="food"><img src="https://placehold.co/600x800/25221e/c9a45c?text=Dessert+Boxes" class="w-full h-full object-cover" alt="علب حلويات"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">علب حلويات</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="cups"><img src="https://placehold.co/600x800/24201a/c9a45c?text=Cup+Carriers" class="w-full h-full object-cover" alt="حوامل أكواب"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">حوامل أكواب</span></div></div>
-          <div class="gallery-item rounded-2xl h-64" data-category="gifts"><img src="https://placehold.co/600x800/25221e/c9a45c?text=Brand+Gifts" class="w-full h-full object-cover" alt="هدايا الشركات"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">هدايا الشركات</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0001.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 1"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0006.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 2"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0007.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 3"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0013.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 4"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0014.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 5"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0015.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 6"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0016.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 7"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0017.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 8"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl h-64" data-category="photo"><img src="assests/IMG-20261116-WA0018.jpg" loading="lazy" class="w-full h-full object-cover" alt="عمل من مطبعة الإتقان 9"><div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="font-bold">من أعمال الإتقان</span></div></div>
+          <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0007.jpg"><source src="assests/VID-20261116-WA0004.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
+          <div class="gallery-item rounded-2xl overflow-hidden min-h-[220px]" data-category="video"><video class="w-full h-full object-cover" controls playsinline preload="metadata" poster="assests/IMG-20261116-WA0014.jpg"><source src="assests/VID-20261116-WA0011.mp4" type="video/mp4"></video><div class="p-3 text-sm font-bold">فيديو من أعمال المطبعة</div></div>
         </div>
-        <p class="text-center text-gray-600 text-xs mt-8">سيتم استبدال الصور التجريبية بصور أعمال المطبعة الحقيقية.</p>
+        <p class="text-center text-gray-500 text-xs mt-8">نماذج من الصور والفيديوهات المرفوعة في معرض أعمال مطبعة الإتقان.</p>
       </div>
     </section>
 
@@ -282,7 +284,7 @@
   <footer class="bg-[#eee9f6] border-t border-white/10 pt-14 pb-8">
     <div class="max-w-7xl mx-auto px-5">
       <div class="grid md:grid-cols-3 gap-10 pb-12">
-        <div><h2 class="text-3xl font-black gold-text">الإتقان</h2><p class="text-gray-500 mt-3 text-sm">مطبعة الإتقان للدعاية والإعلان</p><p class="text-gray-600 text-sm leading-8 mt-4">نمنح أفكارك قيمة ملموسة من خلال حلول التغليف والدعاية والإعلان.</p></div>
+        <div><img src="LOGO.jpg" alt="شعار مطبعة الإتقان" loading="lazy" class="w-28 h-20 object-contain rounded-xl bg-white p-2"><p class="text-gray-500 mt-3 text-sm">مطبعة الإتقان للدعاية والإعلان</p><p class="text-gray-600 text-sm leading-8 mt-4">نمنح أفكارك قيمة ملموسة من خلال حلول التغليف والدعاية والإعلان.</p></div>
         <div><h3 class="font-bold mb-5">روابط سريعة</h3><div class="space-y-3 text-gray-500 text-sm"><a href="#home" class="block nav-link">الرئيسية</a><a href="#services" class="block nav-link">خدماتنا</a><a href="#portfolio" class="block nav-link">معرض أعمالنا</a><a href="#contact" class="block nav-link">تواصل معنا</a></div></div>
         <div><h3 class="font-bold mb-5">معلومات التواصل</h3><p class="text-gray-500 text-sm leading-8">سوريا - حلب - الجميلية<br>شارع إسكندرون - عبارة عالم الأحبار</p><div class="flex gap-3 mt-5"><a href="https://wa.me/" target="_blank" rel="noopener" aria-label="واتساب" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="message-circle" class="w-5 h-5"></i></a><a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="إنستغرام" class="w-10 h-10 rounded-lg glass flex items-center justify-center"><i data-lucide="instagram" class="w-5 h-5"></i></a></div></div>
       </div>
